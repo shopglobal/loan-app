@@ -20,7 +20,6 @@ export default class HomeTab extends Component {
 		this.state = {
 			platforms: []
 		};
-		console.log('hometab construct');
 	}
 
 	componentWillMount() {
@@ -31,12 +30,9 @@ export default class HomeTab extends Component {
 		};
 
 		io.socket.get('/platform/label/热门', {}, (platforms, res) => f(platforms, res));
-		console.log('hometab will mount');
-
 	}
 
 	render() {
-		//console.log('homeTab');
 		let HotList = this.state.platforms.map((platform) => {
 			let link = "/loan/"+platform.id;
 			return <PlatformListItem key={platform.id} data={platform} link={link}/>
@@ -57,16 +53,16 @@ export default class HomeTab extends Component {
 
 				<Flex style={{padding:Size.Padding,backgroundColor:Color.White}}>
 					<Flex.Item><IconAndText icon="images/icon/icon.png" text="贷款大全" link="/label"/> </Flex.Item>
-					<Flex.Item><IconAndText icon="images/icon/icon.png" text="身价测算" link="/question"/> </Flex.Item>
-					<Flex.Item><IconAndText icon="images/icon/icon.png" text="攻略" link="/ad"/> </Flex.Item>
+					<Flex.Item><IconAndText icon="images/icon/icon.png" text="身价测算" link="/worthtest"/> </Flex.Item>
+					<Flex.Item><IconAndText icon="images/icon/icon.png" text="攻略" link="/guide"/> </Flex.Item>
 				</Flex>
 				<LittleTitle title="热门贷款金额"/>
 
 				<Flex style={{padding:Size.Padding,backgroundColor:Color.White}}>
-					<Flex.Item><HomeLoanMoneySquare/></Flex.Item>
-					<Flex.Item><HomeLoanMoneySquare/></Flex.Item>
-					<Flex.Item><HomeLoanMoneySquare/></Flex.Item>
-					<Flex.Item><HomeLoanMoneySquare/></Flex.Item>
+					<Flex.Item><HomeLoanMoneySquare link="/platforms/money/0/2000"/></Flex.Item>
+					<Flex.Item><HomeLoanMoneySquare link="/platforms/money/2000/5000"/></Flex.Item>
+					<Flex.Item><HomeLoanMoneySquare link="/platforms/money/5000/10000"/></Flex.Item>
+					<Flex.Item><HomeLoanMoneySquare link="/platforms/money/10000/100000"/></Flex.Item>
 				</Flex>
 
 				<MyPlaceHolder/>

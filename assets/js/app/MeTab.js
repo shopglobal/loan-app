@@ -11,7 +11,7 @@ export default class MeTab extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isLogin: false,
+			hasLogin: false,
 		}
 	}
 
@@ -42,47 +42,41 @@ export default class MeTab extends Component {
 		);
 	}
 
-	login() {
-		this.setState({
-			isLogin: true,
-		});
-	}
+	loginOrLogout() {
+		if (this.state.hasLogin) {
+			/*io.socket.get('/user/logout', {id: 2, phone: 13456}, (err) => {
+			 if (!err) {
+			 this.setState({
+			 isLogin: false,
+			 });
+			 }
+			 });*/
 
-	logout() {
-		/*io.socket.get('/user/logout', {id: 2, phone: 13456}, (err) => {
-			if (!err) {
-				this.setState({
-					isLogin: false,
-				});
-			}
-		});*/
-
-		this.setState({
-			isLogin: false,
-		});
+			this.setState({
+				hasLogin: false,
+			});
+		} else {
+			this.setState({
+				hasLogin: true,
+			});
+		}
 	}
 
 
 	render() {
 		return (
 			<div>
-				<IconAndText icon="images/icon/icon.png" text="aaa" onClick={() => this.setState({
-					isLogin: true,
-				})}/>
+				<IconAndText icon="images/icon/icon.png" text="aaa" onClick={() => this.loginOrLogout()}/>
 				<List>
+					<NormalListItem onClick={() => this.showLogin()}/>
 					<NormalListItem onClick={() => this.showServiceTele()}>咨询客服</NormalListItem>
 					<NormalListItem onClick={() => {
-						Toast.show('已清除缓存')
+						Toast.show('已清除缓存');
 					}}>清除缓存</NormalListItem>
 					<NormalListItem onClick={() => this.showAbout()}>关于</NormalListItem>
 					<Button style={{textDecoration: 'none',}}
-					        onClick={() => {
-						        if (this.state.isLogin) {
-							        this.login.bind(this);
-						        } else {
-							        this.logout.bind(this);
-						        }
-					        }}>{this.state.isLogin ? '退出登录' : '登录'}</Button>
+					        onClick={() => this.loginOrLogout()}
+					>{this.state.hasLogin ? '退出登录' : '登录'}</Button>
 				</List>
 			</div>);
 	}

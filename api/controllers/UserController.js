@@ -9,13 +9,6 @@ module.exports = {
 
   login: (req, res) => {
 
-    let hasLogin = req.session.user;
-
-    if (hasLogin!==undefined) {
-      console.log('has login');
-      return res.json(hasLogin);
-    }
-
     User.findOne(req.allParams()).exec((err, user) => handleLogin(err, user));
 
     var handleLogin = (err, user) => {

@@ -9,14 +9,23 @@ module.exports = {
 
   attributes: {
     serviceTele:{
-      type:'string'
+      type:'string',
     },
     msgSignature:{
-      type:'string'
+      type:'string',
     },
     msgTemplate:{
-      type:'string'
-    }
+      type:'string',
+    },
+    msgAccount:{
+      type:'string',
+    },
+    msgPassword:{
+      type:'string',
+    },
+    msgUrl:{
+      type:'string',
+    },
 
   },
 

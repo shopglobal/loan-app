@@ -6,6 +6,17 @@
  */
 
 module.exports = {
-	
+  getOrderByUser: (req, res) => {
+
+    Order.find({user: req.param('id')}).sort('dateTime DESC').exec((err, orders) => {
+      if (err) {
+        return res.serverError(err);
+      }
+      if (orders === undefined) {
+        orders = [];
+      }
+      return res.json(orders);
+    });
+  }
 };
 

@@ -11,7 +11,7 @@ export default class MyOrderListItem extends Component {
 
 
 	render() {
-
+		let order = this.props.data;
 
 		return (
 			<div style={styleListItem} onClick={this.props.onClick}>
@@ -22,12 +22,16 @@ export default class MyOrderListItem extends Component {
 						<Flex.Item>
 							<div>
 								<Flex>
-									<div style={{fontSize:Size.NormalFontSize}}>曹操贷</div><div style={{width:10}}></div><div style={styleLitteText}>-未到账</div>
+									<div style={{fontSize: Size.NormalFontSize}}>曹操贷</div>
+									<div style={{width: 10}}></div>
+									<div style={styleLitteText}>-未到账</div>
 								</Flex>
 								<Flex>
-									<div style={styleLitteText}>借款金额:</div><div style={styleLitteText}>10000</div>
-									<div style={{width:10}}></div>
-									<div style={styleLitteText}>借款期数:</div><div style={styleLitteText}>30天</div>
+									<div style={styleLitteText}>借款金额:</div>
+									<div style={styleLitteText}>10000</div>
+									<div style={{width: 10}}></div>
+									<div style={styleLitteText}>借款期数:</div>
+									<div style={styleLitteText}>30天</div>
 								</Flex>
 							</div>
 						</Flex.Item>

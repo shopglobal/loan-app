@@ -201,7 +201,7 @@ const oldFilter = [
 ];
 
 let styleListView = {
-	height: Size.ScreenHeight - Size.NavHeight - Size.NormalListItemHeight,
+	height: Size.NormalContentHeight-Size.NormalListItemHeight,
 	overflow: 'scroll'
 }
 

@@ -3,8 +3,15 @@ module.exports = {
 	ScreenWidth:document.documentElement.clientWidth,
 	ScreenHeight:document.documentElement.clientHeight,
 
+
+	//如果修改导航栏高度和placeHolder高度，一定要修改这里
+	NormalContentHeight:document.documentElement.clientHeight/9*8-15,
+	PlaceHolderDefaultHeight:15,
 	NavHeight: document.documentElement.clientHeight / 9,
 	NavWidth: document.documentElement.clientWidth,
+
+
+
 	AdHeight:document.documentElement.clientHeight/5,
 	LogoSize: 50,
 	IconSizeNormal: 30,
@@ -18,11 +25,10 @@ module.exports = {
 	PickerHeight:document.documentElement.clientHeight*2/5,
 
 
-	NormalListItemHeight: 30,
+	NormalListItemHeight: 50,
 	SmallListItemHeight: 10,
 	MultiListItemHeight: 40,
 
-	PlaceHolderDefaultHeight:15,
 
 	SquareHeight :50,
 	Padding:5,

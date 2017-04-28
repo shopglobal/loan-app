@@ -15,7 +15,7 @@
 
 module.exports.security = {
 
-   /***************************************************************************
+  /***************************************************************************
    *                                                                          *
    * CORS is like a more modern version of JSONP-- it allows your application *
    * to circumvent browsers' same-origin policy, so that the responses from   *
@@ -33,22 +33,28 @@ module.exports.security = {
   //   allowOrigins: '*',
   //   allowCredentials: false,
   // },
+  /*cors: {
+    allRoutes: true,
+    allowOrigins: ['https://vsms.253.com'],
+    //allowOrigins: '*',
+    allowCredentials: false,
+    allowRequestMethods:'POST'
+  },*/
 
 
   /****************************************************************************
-  *                                                                           *
-  * By default, Sails' built-in CSRF protection is disabled to facilitate     *
-  * rapid development.  But be warned!  If your Sails app will be accessed by *
-  * web browsers, you should _always_ enable CSRF protection before deploying *
-  * to production.                                                            *
-  *                                                                           *
-  * To enable CSRF protection, set this to `true`.                            *
-  *                                                                           *
-  * For more information, see:                                                *
-  * http://sailsjs.com/docs/concepts/security/csrf                            *
-  *                                                                           *
-  ****************************************************************************/
+   *                                                                           *
+   * By default, Sails' built-in CSRF protection is disabled to facilitate     *
+   * rapid development.  But be warned!  If your Sails app will be accessed by *
+   * web browsers, you should _always_ enable CSRF protection before deploying *
+   * to production.                                                            *
+   *                                                                           *
+   * To enable CSRF protection, set this to `true`.                            *
+   *                                                                           *
+   * For more information, see:                                                *
+   * http://sailsjs.com/docs/concepts/security/csrf                            *
+   *                                                                           *
+   ****************************************************************************/
 
   // csrf: false
-
 };

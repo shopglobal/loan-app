@@ -52,5 +52,8 @@ module.exports.routes = {
   'get /user/hasLogin':'UserController.hasLogin',
   'get /user/logout':'UserController.logout',
 
+  'get /guide':'GuideController.getOrderedGuide',
+
+  'get /order/user/:id':'OrderController.getOrderByUser',
 
 };
