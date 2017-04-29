@@ -22,6 +22,10 @@ module.exports = {
       defaultsTo:'/images/icon/icon.png',
     },
 
+    date:{
+      type:'string',
+    },
+
     content:{
       type:'string'
     },

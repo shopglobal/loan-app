@@ -10,15 +10,46 @@ import PlatformBlock from "./component/PlatformBlock";
 import MyIcon from "./component/MyIcon";
 import MyInput from "./component/MyInput";
 import NormalListItem from "./component/NormalListItem";
+var io = require('../../dependencies/sockets');
 
 export default class PlatformActivity extends Component {
+
+  constructor(props){
+    super(props);
+    this.state ={
+      //初始化platform，完全是为了初始化
+      platform:{
+        "id": 1,
+        "name": "",
+        "logo": "/images/icon/icon.png",
+        "slogan": "",
+        "applyQuantity": 10000,
+        "successQuantity": 50000,
+        "grade": 8,
+        "fastestTime": "",
+        "averageTime": "",
+        "condition": "",
+        "necessary": "",
+        "declaration": "",
+        "minLimit": 100,
+        "maxLimit": 10000,
+        "url": "",
+        "plans": [],
+        "labels": [     ],
+        "orders": []
+      },
+    }
+    console.log('platform construct');
+  }
+
+  componentWillMount(){
+    console.log('platform will mount');
+
+  }
 
 	render() {
 
 		let platform = this.props.data;
-		this.state = {
-			money: platform.minLimit,
-		}
 		let header = () => {
 			return <div style={{
 				padding: Size.Padding * 2,
@@ -46,7 +77,7 @@ export default class PlatformActivity extends Component {
 		return (
 			<div style={{
 				overflow: 'auto',
-				height: this.props.height
+        height:Size.ScreenHeight - Size.NavHeight - Size.PlaceHolderDefaultHeight * 2 - Size.ButtonHeight
 			}}>
 				{header()}
 				<MyPlaceHolder/>

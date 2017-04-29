@@ -12,7 +12,6 @@
     "react-dom": "^0.14.7",
     "react-router": "^2.8.1",
     "request": "^2.81.0",
-    "request-json": "^0.6.2",
     "sails": "^1.0.0-32",
     "sails-hook-orm": "^2.0.0-0",
     "sails-hook-sockets": "^1.0.1",

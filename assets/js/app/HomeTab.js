@@ -15,69 +15,74 @@ import PlatformListItem from './component/PlatformListItem';
 
 export default class HomeTab extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			platforms: []
-		};
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      platforms: [],
+      ads:[],
+    };
+  }
 
-	componentWillMount() {
-		let f = (platforms, res) => {
-			this.setState({
-				platforms: platforms,
-			});
-		};
+  componentWillMount() {
 
-		io.socket.get('/platform/label/热门', {}, (platforms, res) => f(platforms, res));
-	}
+    io.socket.get('/ad/location/1' , {} , (ads , res)=>{
+      this.setState({
+        ads:ads,
+      });
+    });
 
-	render() {
-		let HotList = this.state.platforms.map((platform) => {
-			let link = "/loan/"+platform.id;
-			return <PlatformListItem key={platform.id} data={platform} link={link}/>
-		});
-		return (
-			<div>
-				<Carousel
-					autoplay={true}
-					infinite>
-					<MyLink link="/ad"><img src={'images/icon/icon.png'} style={styleCarousel}/></MyLink>
-					<img src={'images/icon/icon.png'}/>
-					<img src={'images/icon/icon.png'}/>
-					<img src={'images/icon/icon.png'}/>
-					<img src={'images/icon/icon.png'}/>
-					<img src={'images/icon/icon.png'}/>
+    io.socket.get('/platform/label/热门', {}, (platforms, res) => {
+      this.setState({
+        platforms: platforms,
+      });
+    });
+  }
 
-				</Carousel>
+  render() {
+    let HotList = this.state.platforms.map((platform) => {
+      let link = "/loan/" + platform.id;
+      return <PlatformListItem key={platform.id} data={platform} link={link}/>
+    });
 
-				<Flex style={{padding:Size.Padding,backgroundColor:Color.White}}>
-					<Flex.Item><IconAndText icon="images/icon/icon.png" text="贷款大全" link="/label"/> </Flex.Item>
-					<Flex.Item><IconAndText icon="images/icon/icon.png" text="身价测算" link="/worthtest"/> </Flex.Item>
-					<Flex.Item><IconAndText icon="images/icon/icon.png" text="攻略" link="/guide"/> </Flex.Item>
-				</Flex>
-				<LittleTitle title="热门贷款金额"/>
+    let AdCarousel = this.state.ads.map((ad)=>{
+      return <img key={ad.id} style={styleAd} src={ad.image} alt={ad.title} onClick={()=>browserHistory.push('/ad/'+ad.id)}/>
+    });
+    return (
+      <div>
+        <Carousel
+          style={styleAd}
+          autoplay={true}
+          infinite>
+          {AdCarousel}
+        </Carousel>
 
-				<Flex style={{padding:Size.Padding,backgroundColor:Color.White}}>
-					<Flex.Item><HomeLoanMoneySquare link="/platforms/money/0/2000"/></Flex.Item>
-					<Flex.Item><HomeLoanMoneySquare link="/platforms/money/2000/5000"/></Flex.Item>
-					<Flex.Item><HomeLoanMoneySquare link="/platforms/money/5000/10000"/></Flex.Item>
-					<Flex.Item><HomeLoanMoneySquare link="/platforms/money/10000/100000"/></Flex.Item>
-				</Flex>
+        <Flex style={{padding: Size.Padding, backgroundColor: Color.White}}>
+          <Flex.Item><IconAndText icon="images/icon/icon.png" text="贷款大全" link="/label"/> </Flex.Item>
+          <Flex.Item><IconAndText icon="images/icon/icon.png" text="身价测算" link="/worthtest"/> </Flex.Item>
+          <Flex.Item><IconAndText icon="images/icon/icon.png" text="攻略" link="/guide"/> </Flex.Item>
+        </Flex>
+        <LittleTitle title="热门贷款金额"/>
 
-				<MyPlaceHolder/>
-				<LittleTitle>热门贷款平台</LittleTitle>
-				<List>
-					{HotList}
-				</List>
-				<MyPlaceHolder height={Size.TabBarHeight}/>
+        <Flex style={{padding: Size.Padding, backgroundColor: Color.White}}>
+          <Flex.Item><HomeLoanMoneySquare link="/platforms/money/0/2000"/></Flex.Item>
+          <Flex.Item><HomeLoanMoneySquare link="/platforms/money/2000/5000"/></Flex.Item>
+          <Flex.Item><HomeLoanMoneySquare link="/platforms/money/5000/10000"/></Flex.Item>
+          <Flex.Item><HomeLoanMoneySquare link="/platforms/money/10000/100000"/></Flex.Item>
+        </Flex>
 
-			</div>
+        <MyPlaceHolder/>
+        <LittleTitle>热门贷款平台</LittleTitle>
+        <List>
+          {HotList}
+        </List>
+        <MyPlaceHolder height={Size.TabBarHeight}/>
 
-		);
-	}
+      </div>
+
+    );
+  }
 }
 
-let styleCarousel = {
-	height: Size.AdHeight
+let styleAd = {
+  height: Size.AdHeight
 }

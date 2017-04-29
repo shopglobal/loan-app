@@ -10,6 +10,7 @@ export default class MyButton extends Component {
 	render() {
 
 		let styleButton = {
+		  display:'flex',
 			textDecoration: 'none',
 			color: Color.Font,
 			lineHeight: 'normal',
@@ -34,7 +35,7 @@ export default class MyButton extends Component {
 					style={styleButton}
 					onClick={this.props.onClick}>
 
-					{this.props.children}
+					<div style={{margin:'auto'}}>{this.props.children}</div>
 				</Button></MyLink>
 
 		);

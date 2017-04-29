@@ -8,7 +8,7 @@
 module.exports = {
   getOrderByUser: (req, res) => {
 
-    Order.find({user: req.param('id')}).sort('dateTime DESC').exec((err, orders) => {
+    Order.find({user: req.param('id')}).populate('platform').sort('dateTime DESC').exec((err, orders) => {
       if (err) {
         return res.serverError(err);
       }

@@ -6,7 +6,18 @@
  */
 
 module.exports = {
-  
+
+  getAdByLocation:(req , res)=>{
+    Ad.find(req.allParams()).exec((err , ads)=>{
+      if(err){
+        return res.serverError(err);
+      }
+      if(ads === undefined){
+        ads=[];
+      }
+      return res.json(ads);
+    });
+  },
 
 };
 

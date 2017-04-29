@@ -9,61 +9,71 @@ var io = require('../../dependencies/sockets');
 
 export default class OrderTab extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			hasLogin: false,
-			dataSource: new ListView.DataSource({
-				rowHasChanged: (r1, r2) => r1 !== r2
-			}).cloneWithRows([]),
-		}
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasLogin: 0,
+      orders: [],
+      dataSource: new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2
+      }).cloneWithRows([]),
+    }
+  }
 
-	componentWillMount() {
+  getOrders(userId) {
+    io.socket.get('/order/user/' + userId, {}, (orders, res) => {
+      this.setState({
+        orders: orders,
+        dataSource: this.state.dataSource.cloneWithRows(orders),
+      });
+    });
+  }
 
-		if (!this.state.hasLogin) {
-			io.socket.get('/user/hasLogin', {}, (user, res) => {
-				if(user !== undefined){
-					getOrders(user.id)
-					this.setState({
-						hasLogin:true,
-					});
-				}
-			})
-		}
+  componentWillMount() {
+    io.socket.get('/user/hasLogin', {}, (user, res) => {
+      let hasLogin = 0;
+      if (user !== undefined) {
+        hasLogin = user.id;
+        this.getOrders(user.id);
+      }
+      this.setState({
+        hasLogin: hasLogin,
+      });
+    });
+  }
 
-		let getOrders = (userId) => {
+  render() {
 
-			io.socket.get('/order/user/'+userId , {} , (orders , res)=>{
-				this.setState({
-					orders:orders,
-					dataSource:this.state.dataSource.cloneWithRows(orders),
-				});
-			});
-		}
-	}
+    let Content = () => {
+      if (this.state.hasLogin === 0) {
+        return (<div style={{
+          textDecoration: 'none',
+          borderWidth: 0,
+          display: this.state.hasLogin === 0 ? undefined : 'none',
+          padding: Size.ScreenWidth / 4,
+          height: Size.NormalContentHeight-Size.TabBarHeight,
+        }}>
+          <MyButton link="/login" style={{height: 100}}>登录</MyButton>
+        </div>);
+      } else {
+        return (<ListView
+          style={styleListView}
+          dataSource={this.state.dataSource}
+          renderRow={(order) => <MyOrderListItem key={order.id} data={order}/>}/>);
+      }
+    };
 
-	render() {
-		return (<div>
-			<MyNavBar leftIcon='false' title="订单"/>
-			<div style={{
-				textDecoration:'none',
-				display: this.state.hasLogin,
-				padding: Size.ScreenWidth / 4,
-			}}>
-				<MyButton link="/login">登录</MyButton>
-			</div>
-			<ListView
-				style={styleListView}
-				dataSource={this.state.dataSource}
-				renderRow={(order) => <MyOrderListItem data={order}/>}/>
-		</div>);
-	}
+    return (<div>
+      <MyNavBar leftIcon='false' title="订单"/>
+      <Content/>
+    </div>);
+  }
 }
 
 let styleListView = {
-	height: document.documentElement.clientHeight - Size.NavHeight - Size.TabBarHeight,
-	overflow: 'scroll'
+  borderWidth: 0,
+  height: Size.NormalContentHeight-Size.TabBarHeight,
+  overflow: 'scroll'
 }
 
 

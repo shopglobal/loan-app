@@ -7,25 +7,25 @@ import styleListItem from '../style/styleListItem';
 import styleLitteText from '../style/styleLittleText';
 import MyLink from "./MyLink";
 
-export default class GuideListItem extends Component {
+export default class StrategyListItem extends Component {
 
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
-		let guide = this.props.data;
+		let strategy = this.props.data;
 		return (
 
-			<div onClick={()=>this.props.onClick(guide)} style={styleListItem}>
+			<div onClick={()=>this.props.onClick(strategy)} style={styleListItem}>
 				<MyLink to={this.props.link}>
 					<Flex>
-						<MyIcon size="big" src={guide.icon}/>
+						<MyIcon size="big" src={strategy.icon}/>
 						<Flex.Item>
-							<div style={styleTitle}>{guide.title}</div>
-							<div style={styleLitteText}>{guide.subtitle}</div>
+							<div style={styleTitle}>{strategy.title}</div>
+							<div style={styleLitteText}>{strategy.date}</div>
 						</Flex.Item>
-						<div>{guide.readQuantity}人阅读</div>
+						<div>{strategy.readQuantity}人阅读</div>
 					</Flex></MyLink>
 			</div>
 

@@ -57,4 +57,7 @@ module.exports.routes = {
 
   'get /order/user/:id':'OrderController.getOrderByUser',
 
+  'get /ad/location/:location':'AdController.getAdByLocation',
+
+
 };

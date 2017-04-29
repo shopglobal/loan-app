@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Size from '../style/Size';
+import MyLink from "./MyLink";
 
 export default class MyIcon extends Component {
 
@@ -54,7 +55,7 @@ export default class MyIcon extends Component {
 
 		return (
 			<div style={{visibility: visibility , display:display}} onClick={this.props.onClick}>
-				<img src={src} alt="" style={styleSize}/>
+          <img src={src} alt="" style={styleSize}/>
 			</div>
 		);
 	}

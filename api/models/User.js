@@ -12,8 +12,8 @@ module.exports = {
       type: 'string'
     },
     phone:{
-      type:'number',
-      columnType:'bigint',
+      type:'string',
+      columnType:'varchar(11)',
       unique:true,
     },
     orders:{

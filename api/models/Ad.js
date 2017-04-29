@@ -14,10 +14,13 @@ module.exports = {
     url:{
       type:'string'
     },
-    localtion:{
+    location:{
       type:'number',
       columnType:'int',
       defaultsTo:0,
+    },
+    title:{
+      type:'string'
     }
 
 

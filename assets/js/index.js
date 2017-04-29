@@ -22,10 +22,9 @@ const router = (
   <Router history={browserHistory}>
     <Route path="/" component={MainActivity}/>
     <Route path='/platforms(/:mode/:arg1(/:arg2))' component={PlatformsActivity}/>
-    {/*<Route path='/platform/:id' component={PlatformActivity}/>*/}
     <Route path='/worthtest' component={WorthTestActivity}/>
     <Route path='/label' component={LabelTab}/>
-    <Route path='/ad' component={AdActivity}/>
+    <Route path='/ad/:id' component={AdActivity}/>
     <Route path='/loan/:id' component={LoanActivity}/>
     <Route path='/strategycontent/:id' component={StrategyContentActivity}/>
     <Route path='/strategylist' component={StrategyListActivity}/>

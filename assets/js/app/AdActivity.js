@@ -14,23 +14,36 @@ import MyIcon from "./component/MyIcon";
 
 export default class AdActivity extends Component {
 
-	constructor(props) {
-		super(props);
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      ad: {
+        title: "",
+        url: "",
+      }
+    }
+  }
 
-	componentWillMount() {
+  componentWillMount() {
+    io.socket.get('/ad/' + this.props.params.id, {}, (ad, res) => {
+      this.setState({
+        ad: ad,
+      });
+    });
+  }
 
-	}
+  render() {
 
+    return (
+      <div>
+        <MyNavBar onLeftClick={() => alert('leftClick')} rightIcon='filter'
+                  onRightClick={() => alert('rightClick')}>{this.state.ad.title}</MyNavBar>
+        <iframe src={this.state.ad.url}
+                frameborder="0"
+                width={Size.ScreenWidth}
+                height={Size.ScreenHeight - Size.NavHeight - Size.PlaceHolderDefaultHeight}/>
+        <MyPlaceHolder/>
 
-	render() {
-
-		return (
-			<div>
-				<MyNavBar onLeftClick={() => alert('leftClick')} rightIcon='filter'
-				          onRightClick={() => alert('rightClick')}>贷款平台</MyNavBar>
-				<iframe src="/platform/1"></iframe>
-
-			</div>);
-	}
+      </div>);
+  }
 }

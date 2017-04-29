@@ -7,35 +7,36 @@ var io = require('../../dependencies/sockets');
 
 export default class StrategyContentActivity extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			strategy: {},
-		}
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      strategy: {
+        title:"",
+        content:"",
+      },
+    }
+  }
 
-	componentWillMount() {
-		let f = (strategy, res) => {
-			this.setState({
-				strategy: strategy,
-			});
-		};
+  componentWillMount() {
+    io.socket.get('/strategy/' + this.props.params.id, {}, (strategy, res) => {
+      this.setState({
+        strategy: strategy,
+      });
+    });
+  }
 
-		io.socket.get('/strategy/' + this.props.params.id, {}, (strategy, res) => f(strategy, res))
-	}
-
-	render() {
-		return (
-			<div>
-				<MyNavBar>{this.state.strategy.title}</MyNavBar>
-				<iframe
-					width={Size.ScreenWidth}
-					src={this.state.strategy.content}
-					height={Size.NormalContentHeight}/>
-				<MyPlaceHolder/>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <MyNavBar>{this.state.strategy.title}</MyNavBar>
+        <iframe
+          width={Size.ScreenWidth}
+          src={this.state.strategy.content}
+          height={Size.NormalContentHeight}/>
+        <MyPlaceHolder/>
+      </div>
+    );
+  }
 
 
 }
