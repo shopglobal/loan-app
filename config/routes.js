@@ -51,6 +51,7 @@ module.exports.routes = {
   'post /user/login':'UserController.login',
   'get /user/hasLogin':'UserController.hasLogin',
   'get /user/logout':'UserController.logout',
+  'get /user/verification/:phone':'UserController.generateVerification',
 
   'get /guide':'GuideController.getOrderedGuide',
 

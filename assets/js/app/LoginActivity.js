@@ -39,28 +39,14 @@ export default class LoginActivity extends Component {
 	}
 
 	sendVerificationMsg() {
-		//首先生成一个验证码，使用io.socket.post去发送验证短信码
-		let code = parseInt(MyRandom.generateNum())+"";
 
-		let setting = this.state.setting;
-		let msgJson = {
-			"account":setting.msgAccount,
-			"password":setting.msgPassword,
-			"msg": "【"+setting.msgSignature+"】"+setting.msgTemplate+"："+code,
-			"phone": this.state.tempPhone
-		};
+	  io.socket.get('/user/verification' , {phone:this.state.tempPhone} , (data , res)=>{
 
-		io.socket.post(setting.msgUrl , msgJson , (data , res)=>{
-		  console.log(res);
     });
-		/*jq.post(setting.msgUrl , msgJson , (data , status)=>{
-		  console.log(data);
-		  console.log(status);
-    });*/
 
 		//变按钮为不可用，同时改变文字
 		this.setState({
-			correctVerificationCode:code,
+			//correctVerificationCode:code,
 			hasSendMeg: true,
 			correctPhone: this.state.tempPhone,
 		});
