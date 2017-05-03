@@ -7,6 +7,7 @@ export default class MyInput extends Component{
 	render(){
 		return(
 			<Input
+        id={this.props.id}
 				defaultValue={this.props.defaultValue}
 				style={{width:Size.InputWidth}}/>
 		);

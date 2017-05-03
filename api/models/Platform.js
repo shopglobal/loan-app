@@ -27,7 +27,7 @@ module.exports = {
     },
     grade: {
       type: 'number',
-      columnType:'int',
+      columnType:'float',
     },
     fastestTime: {
       type: 'string'

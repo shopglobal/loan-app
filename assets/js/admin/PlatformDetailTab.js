@@ -15,20 +15,20 @@ export default class PlatformDetailTab extends Component {
       selectLabels: [],
       labels: [],
       platform: {
-        "name": "",
-        "logo": "",
-        "slogan": "",
-        "applyQuantity": 0,
-        "successQuantity": 0,
-        "grade": 0,
-        "fastestTime": "",
-        "averageTime": "",
-        "condition": "",
-        "necessary": "",
-        "declaration": "",
-        "minLimit": 0,
-        "maxLimit": 0,
-        "url": "",
+        "name": undefined,
+        "logo": undefined,
+        "slogan": undefined,
+        "applyQuantity": undefined,
+        "successQuantity": undefined,
+        "grade": undefined,
+        "fastestTime": undefined,
+        "averageTime": undefined,
+        "condition": undefined,
+        "necessary": undefined,
+        "declaration": undefined,
+        "minLimit": undefined,
+        "maxLimit": undefined,
+        "url": undefined,
         "plans": [],
         "labels": [],
       },
@@ -86,13 +86,73 @@ export default class PlatformDetailTab extends Component {
   }
 
   validate() {
-    let platform = {};
-    let name, slogan, apply, success, grade, festest, average, condition, necessary, declaration;
-    if ((name = document.getElementById('name')) === undefined) {
-
+    let name, slogan, url,apply, success, grade, fastest, average, condition, necessary, declaration , min ,max;
+    if ((name = document.getElementById('name').value) == "") {
+      alert("贷款平台名称不能为空！");
+      return;
+    }
+    if ((slogan = document.getElementById('slogan').value) == "") {
+      alert("贷款平台宣传语不能为空！");
+      return;
+    }
+    url = document.getElementById('url').value;
+    if (url == "") {
+      alert("贷款平台宣传语不能为空！");
+      return;
+    }
+    if ((apply = document.getElementById('apply').value) == "") {
+      alert("贷款平台申请人数不能为空！");
+      return;
+    }
+    if ((success = document.getElementById('success').value) == "") {
+      alert("贷款平台申请成功次数不能为空！");
+      return;
+    }
+    if ((grade = document.getElementById('grade').value) == "") {
+      alert("贷款平台综合评分不能为空！");
+      return;
+    }
+    if ((fastest = document.getElementById('fastest').value) == "") {
+      alert("贷款平台最宽放款时间不能为空！");
+      return;
+    }
+    if ((average = document.getElementById('average').value) == "") {
+      alert("贷款平台平均放款时间不能为空！");
+      return;
+    }
+    if ((condition = document.getElementById('condition').value) == "") {
+      alert("贷款平台申请条件不能为空！");
+      return;
+    }
+    if ((necessary = document.getElementById('necessary').value) == "") {
+      alert("贷款平台必须材料不能为空！");
+      return;
+    }
+    if ((declaration = document.getElementById('declaration').value) == "") {
+      alert("贷款平台声明不能为空！");
+      return;
+    }
+    if ((min = document.getElementById('min').value) == "") {
+      alert("贷款平台声明不能为空！");
+      return;
+    }
+    if ((max = document.getElementById('max').value) == "") {
+      alert("贷款平台声明不能为空！");
+      return;
     }
 
-    return platform;
+    return {
+      name:name,
+      slogan:slogan,
+      applyQuantity:parseInt(apply),
+      successQuantity:parseInt(success),
+      grade:parseFloat(grade),
+      fastestTime:fastest,
+      averageTime:average,
+      condition:condition,
+      necessary:necessary,
+      declaration:declaration,
+    };
 
   }
 
@@ -117,6 +177,9 @@ export default class PlatformDetailTab extends Component {
           </FormItem>
           <FormItem label="宣传语">
             <MyInput defaultValue={platform.slogan} id="slogan"/>
+          </FormItem>
+          <FormItem label="官网网址">
+            <MyInput defaultValue={platform.url} id="url"/>
           </FormItem>
           <div style={{display: 'flex'}}>
             <FormItem label="申请人数">
