@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import IconAndText from "./component/IconAndText";
 import MyNavBar from "./component/MyNavBar";
-import MyButton from "./component/MyButton";
+import MyButton from "../Tools/MyButton";
 import {Toast} from "antd-mobile";
 import Color from "./style/Color";
 import MyInput from "./component/MyInput";

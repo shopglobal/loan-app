@@ -6,10 +6,16 @@
   "plugins": [
     [
       "import",
-      {
-        "style": "css",
-        "libraryName": "antd-mobile"
-      }
+      [
+        {
+          "style": "css",
+          "libraryName": "antd-mobile"
+        },
+        {
+          "libraryName": "antd",
+          "style": "css"
+        }
+      ]
     ]
   ]
 }

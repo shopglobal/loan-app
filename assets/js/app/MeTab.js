@@ -4,8 +4,8 @@ import {List, ActionSheet, Toast, Modal, Popup, Button} from 'antd-mobile';
 import Size from './style/Size';
 import NormalListItem from './component/NormalListItem';
 import {browserHistory} from 'react-router';
-import MyIcon from "./component/MyIcon";
-import MyButton from './component/MyButton';
+import MyIcon from "../Tools/MyIcon";
+import MyButton from '../Tools/MyButton';
 var io = require('../../dependencies/sockets');
 
 export default class MeTab extends Component {

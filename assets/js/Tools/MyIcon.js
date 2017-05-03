@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Size from '../../Tools/Size';
-import MyLink from "../../Tools/MyLink";
+import Size from '../app/style/Size';
+import MyLink from "./MyLink";
 
 export default class MyIcon extends Component {
 

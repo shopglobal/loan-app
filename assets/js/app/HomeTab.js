@@ -4,7 +4,7 @@ import {Carousel, Flex} from 'antd-mobile';
 import MyPlaceHolder from "./component/MyPlaceHolder";
 import HomeLoanMoneySquare from "./component/HomeLoanMoneySquare";
 import LittleTitle from "./component/MyLittleTitle";
-import MyLink from "./component/MyLink";
+import MyLink from "../Tools/MyLink";
 var io = require('../../dependencies/sockets');
 import Size from './style/Size';
 import Color from './style/Color';

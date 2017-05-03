@@ -3,7 +3,7 @@ import Size from '../style/Size';
 import Color from '../style/Color';
 
 import {Flex} from 'antd-mobile';
-import MyLink from "./MyLink";
+import MyLink from "../../Tools/MyLink";
 
 export default class HomeLoanMoneySquare extends Component {
 

@@ -4,7 +4,7 @@ import MyNavBar from './component/MyNavBar';
 import Size from './style/Size';
 
 import MyOrderListItem from "./component/MyOrderListItem";
-import MyButton from "./component/MyButton";
+import MyButton from "../Tools/MyButton";
 var io = require('../../dependencies/sockets');
 
 export default class OrderTab extends Component {

@@ -7,9 +7,9 @@ import Size from './style/Size';
 import Color from './style/Color';
 import MyPicker from "./component/MyPicker";
 import PlatformBlock from "./component/PlatformBlock";
-import MyIcon from "./component/MyIcon";
+import MyIcon from "../Tools/MyIcon";
 import PlatformActivity from "./PlatformActivity";
-import MyButton from "./component/MyButton";
+import MyButton from "../Tools/MyButton";
 var io = require('../../dependencies/sockets');
 import {browserHistory} from 'react-router';
 

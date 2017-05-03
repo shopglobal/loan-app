@@ -10,7 +10,7 @@ import MyNavBar from './component/MyNavBar';
 
 import Size from './style/Size';
 import MyPlaceHolder from "./component/MyPlaceHolder";
-import MyIcon from "./component/MyIcon";
+import MyIcon from "../Tools/MyIcon";
 
 export default class AdActivity extends Component {
 

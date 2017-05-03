@@ -3,7 +3,7 @@ import {Picker} from "antd-mobile";
 
 import Color from '../style/Color';
 import Size from '../style/Size';
-import MyIcon from "./MyIcon";
+import MyIcon from "../../Tools/MyIcon";
 import TextListItem from "./TextListItem";
 
 export default class MyPicker extends Component {

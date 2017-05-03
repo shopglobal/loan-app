@@ -1,7 +1,7 @@
 import React, {Component}from 'react';
 import {Flex} from 'antd-mobile';
-import MyIcon from './MyIcon';
-import MyLink from './MyLink';
+import MyIcon from '../../Tools/MyIcon';
+import MyLink from '../../Tools/MyLink';
 import styleListItem from '../style/styleListItem';
 
 

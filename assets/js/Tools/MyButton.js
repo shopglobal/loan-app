@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import Size from '../../Tools/Size';
-import Color from '../../Tools/Color';
-import MyLink from "../../Tools/MyLink";
+import Size from '../app/style/Size';
+import Color from '../app/style/Color';
+import MyLink from "./MyLink";
 import {Button} from "antd-mobile";
 
 export default class MyButton extends Component {

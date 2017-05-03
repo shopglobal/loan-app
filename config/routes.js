@@ -40,6 +40,7 @@ module.exports.routes = {
   'get /platform/label/:name':'PlatformController.getPlatformByLabelName',
   'patch /platform/:id/setLabel':'PlatformController.setLabel',
   'patch /platform/:id/setPlan':'PlatformController.setPlan',
+  'post /platform/uploadLogo':'PlatformController.uploadLogo',
 
 
 

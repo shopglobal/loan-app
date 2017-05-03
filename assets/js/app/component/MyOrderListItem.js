@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Size from '../style/Size';
 import Color from '../style/Color';
-import MyIcon from './MyIcon';
-import MyLink from './MyLink';
+import MyIcon from '../../Tools/MyIcon';
+import MyLink from '../../Tools/MyLink';
 import {Flex} from 'antd-mobile';
 import styleListItem from '../style/styleListItem';
 import styleLitteText from '../style/styleLittleText';

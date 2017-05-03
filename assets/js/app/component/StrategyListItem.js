@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Flex} from "antd-mobile";
-import MyIcon from './MyIcon';
+import MyIcon from '../../Tools/MyIcon';
 
 import Color from '../style/Color';
 import styleListItem from '../style/styleListItem';
 import styleLitteText from '../style/styleLittleText';
-import MyLink from "./MyLink";
+import MyLink from "../../Tools/MyLink";
 
 export default class StrategyListItem extends Component {
 
