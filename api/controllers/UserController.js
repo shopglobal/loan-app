@@ -12,7 +12,7 @@ module.exports = {
   login: (req, res) => {
 
     //测试用
-    let user ={
+    /*let user ={
       "createdAt": 1493433225022,
       "updatedAt": 1493433225022,
       "id": 2,
@@ -21,9 +21,9 @@ module.exports = {
       "orders": []
     };
     req.session.user = user;
-    res.json(user);
+    res.json(user);*/
 
-    /*console.log(req.session);
+    //console.log(req.session);
     let signUser = req.session.user;
     let signCode = req.session.code;
 
@@ -36,7 +36,7 @@ module.exports = {
       return res.json(signUser);
     } else {
       return res.json(undefined);
-    }*/
+    }
 
   },
 
