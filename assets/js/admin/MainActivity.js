@@ -10,7 +10,7 @@ export default class MainActivity extends Component {
 
 		return (
 			<div>
-				<div style={{height: Size.HeaderHeight}}><h1>MainActivity</h1></div>
+				<div style={{height: Size.HeaderHeight}}><h1>Header</h1></div>
 				<div style={{
 					display: 'flex',
 				}}>

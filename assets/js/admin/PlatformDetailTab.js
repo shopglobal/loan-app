@@ -3,6 +3,8 @@ import {Form, Icon, Input, Button, Checkbox} from 'antd';
 import MyInput from "./component/MyInput";
 import MyUpload from "./component/MyUpload";
 const FormItem = Form.Item;
+import {browserHistory} from 'react-router';
+import MyCheckboxGroup from './component/MyCheckboxGroup';
 var io = require('../../dependencies/sockets');
 
 
@@ -11,6 +13,7 @@ export default class PlatformDetailTab extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      newLogo: false,
       imageUrl: undefined,
       selectLabels: [],
       labels: [],
@@ -53,7 +56,7 @@ export default class PlatformDetailTab extends Component {
       }
     });
 
-    if (id !== 0) {
+    if (id != 0) {
       io.socket.get('/platform/' + id, {}, (platform, res) => {
         let labels = platform.labels;
         if (labels.length !== 0) {
@@ -65,7 +68,7 @@ export default class PlatformDetailTab extends Component {
         }
 
         this.setState({
-          imageUrl:platform.logo,
+          imageUrl: platform.logo,
           selectLabels: platform.labels,
           platform: platform,
         });
@@ -75,85 +78,152 @@ export default class PlatformDetailTab extends Component {
 
   save(platform) {
     let id = this.props.params.id;
-    let newPlatform = {};
 
-
-    if (id === 0) {
-      io.socket.post('/platform', newPlatform);
+    if (id == 0) {
+      io.socket.post('/platform', platform);
     } else {
-      io.socket.patch('/platform/' + id, newPlatform);
+      if ('labels' in platform) {
+        io.socket.patch('/platform/' + id + '/setLabel', {'labels': platform.labels});
+        delete platform.labels;
+      }
+      if (!this.isEmptyObject(platform)) {
+        io.socket.patch('/platform/' + id, platform);
+      }
     }
   }
 
+
   validate() {
-    let name, slogan, url,apply, success, grade, fastest, average, condition, necessary, declaration , min ,max;
-    if ((name = document.getElementById('name').value) == "") {
-      alert("贷款平台名称不能为空！");
-      return;
-    }
-    if ((slogan = document.getElementById('slogan').value) == "") {
-      alert("贷款平台宣传语不能为空！");
-      return;
-    }
-    url = document.getElementById('url').value;
-    if (url == "") {
-      alert("贷款平台宣传语不能为空！");
-      return;
-    }
-    if ((apply = document.getElementById('apply').value) == "") {
-      alert("贷款平台申请人数不能为空！");
-      return;
-    }
-    if ((success = document.getElementById('success').value) == "") {
-      alert("贷款平台申请成功次数不能为空！");
-      return;
-    }
-    if ((grade = document.getElementById('grade').value) == "") {
-      alert("贷款平台综合评分不能为空！");
-      return;
-    }
-    if ((fastest = document.getElementById('fastest').value) == "") {
-      alert("贷款平台最宽放款时间不能为空！");
-      return;
-    }
-    if ((average = document.getElementById('average').value) == "") {
-      alert("贷款平台平均放款时间不能为空！");
-      return;
-    }
-    if ((condition = document.getElementById('condition').value) == "") {
-      alert("贷款平台申请条件不能为空！");
-      return;
-    }
-    if ((necessary = document.getElementById('necessary').value) == "") {
-      alert("贷款平台必须材料不能为空！");
-      return;
-    }
-    if ((declaration = document.getElementById('declaration').value) == "") {
-      alert("贷款平台声明不能为空！");
-      return;
-    }
-    if ((min = document.getElementById('min').value) == "") {
-      alert("贷款平台声明不能为空！");
-      return;
-    }
-    if ((max = document.getElementById('max').value) == "") {
-      alert("贷款平台声明不能为空！");
-      return;
+    let example = [
+      {
+        id: 'name',
+        alertStr: "贷款平台名称不能为空！"
+      },
+      {
+        id: 'slogan',
+        alertStr: "贷款平台宣传语不能为空！"
+      },
+      {
+        id: 'fastestTime',
+        alertStr: "贷款平台最快放款时间不能为空！"
+      },
+      {
+        id: 'averageTime',
+        alertStr: "贷款平台平均放款时间不能为空！"
+      },
+      {
+        id: 'condition',
+        alertStr: "贷款平台申请条件不能为空！"
+      },
+      {
+        id: 'necessary',
+        alertStr: "贷款平台必须材料不能为空！"
+      },
+      {
+        id: 'declaration',
+        alertStr: "贷款平台声明不能为空！"
+      },
+      {
+        id: 'applyQuantity',
+        alertStr: "请输入正确的贷款平台申请人数！"
+      },
+      {
+        id: 'successQuantity',
+        alertStr: "请输入正确的贷款平台申请成功次数！"
+      },
+      {
+        id: 'grade',
+        alertStr: "请输入正确的贷款平台综合评分！"
+      },
+      {
+        id: 'minLimit',
+        alertStr: "请输入正确的贷款平台最小申请额度！"
+      },
+      {
+        id: 'maxLimit',
+        alertStr: "请输入正确的贷款平台最大申请额度！"
+      },
+    ];
+
+    let newPlatform = {};
+    //从index=7开始的各项都是数字项，要转化为数字
+    let len = example.length;
+    let flagIndex = 7;
+    let text;
+    let temp;
+    //增加新的平台
+    if (this.props.params.id == 0) {
+      for (let i = 0; i < flagIndex; i++) {
+        temp = example[i];
+        if ((text = document.getElementById(temp.id).value) == "") {
+          alert(temp.alertStr);
+          return;
+        }
+        newPlatform[temp.id] = text;
+      }
+      for (let i = flagIndex; i < len; i++) {
+        temp = example[i];
+        text = document.getElementById(temp.id).value;
+        if (!(/\d+/.test(text))) {
+          alert(temp.alertStr);
+          return;
+        }
+        newPlatform[temp.id] = parseInt(text);
+      }
+      if (!this.state.newLogo) {
+        alert("请上传贷款平台logo！");
+        return;
+      }
+      newPlatform['logo'] = this.state.imageUrl;
+
+      let url = document.getElementById('url').value;
+      if (url == "") {
+        alert("贷款平台官网不能为空！");
+        return;
+      } else if (!(/^(http)s?:\/\/\w+/.test(url))) {
+        alert("贷款平台官网格式不正确，请以“http://”或“https://”开头！");
+        return;
+      }
+      newPlatform['url'] = url;
+
+      newPlatform['labels'] = this.state.selectLabels;
+    } else {
+      //更新平台数据
+      for (let i = 0; i < flagIndex; i++) {
+        temp = example[i];
+        if ((text = document.getElementById(temp.id).value) != "") {
+          newPlatform[temp.id] = text;
+        }
+      }
+      for (let i = flagIndex; i < len; i++) {
+        temp = example[i];
+        text = document.getElementById(temp.id).value;
+        if (text != "") {
+          if (!(/\d+/.test(text))) {
+            alert(temp.alertStr);
+            return;
+          }
+          newPlatform[temp.id] = parseInt(text);
+        }
+      }
+      if (this.state.newLogo) {
+        newPlatform['logo'] = this.state.imageUrl;
+      }
+      //如果经过选择，最终的结果没变就不更新
+      if (this.state.selectLabels.sort().toString() != this.state.platform.labels.sort().toString()) {
+        newPlatform['labels'] = this.state.selectLabels;
+      }
+      let url = document.getElementById('url').value;
+      if (url != "") {
+        if (!(/^(http)s?:\/\/\w+/.test(url))) {
+          alert("贷款平台官网格式不正确，请以“http://”或“https://”开头！");
+          return;
+        }
+        newPlatform['url'] = url;
+      }
     }
 
-    return {
-      name:name,
-      slogan:slogan,
-      applyQuantity:parseInt(apply),
-      successQuantity:parseInt(success),
-      grade:parseFloat(grade),
-      fastestTime:fastest,
-      averageTime:average,
-      condition:condition,
-      necessary:necessary,
-      declaration:declaration,
-    };
-
+    return newPlatform;
   }
 
   render() {
@@ -169,67 +239,73 @@ export default class PlatformDetailTab extends Component {
               url={this.state.imageUrl}
               action="/platform/uploadLogo"
               afterUpload={(imageUrl) => {
-                this.setState({imageUrl: imageUrl})
+                this.setState({newLogo: true, imageUrl: imageUrl})
               }}/>
           </FormItem>
           <FormItem label="名称">
-            <MyInput defaultValue={platform.name} id="name"/>
+            <MyInput placeholder={platform.name} id="name"/>
           </FormItem>
           <FormItem label="宣传语">
-            <MyInput defaultValue={platform.slogan} id="slogan"/>
+            <MyInput placeholder={platform.slogan} id="slogan"/>
           </FormItem>
           <FormItem label="官网网址">
-            <MyInput defaultValue={platform.url} id="url"/>
+            <MyInput placeholder={platform.url} id="url"/>
           </FormItem>
           <div style={{display: 'flex'}}>
             <FormItem label="申请人数">
-              <MyInput defaultValue={platform.applyQuantity} id="apply"/>
+              <MyInput placeholder={platform.applyQuantity} id="applyQuantity"/>
             </FormItem>
             <FormItem label="成功次数">
-              <MyInput defaultValue={platform.successQuantity} id="success"/>
+              <MyInput placeholder={platform.successQuantity} id="successQuantity"/>
             </FormItem>
           </div>
           <FormItem label="综合评分">
-            <MyInput defaultValue={platform.grade} id="grade"/>
+            <MyInput placeholder={platform.grade} id="grade"/>
           </FormItem>
           <div style={{display: 'flex'}}>
             <FormItem label="最快放款时间">
-              <MyInput defaultValue={platform.fastestTime} id="fastest"/>
+              <MyInput placeholder={platform.fastestTime} id="fastestTime"/>
             </FormItem>
             <FormItem label="平均放款时间">
-              <MyInput defaultValue={platform.averageTime} id="average"/>
+              <MyInput placeholder={platform.averageTime} id="averageTime"/>
             </FormItem></div>
           <div style={{display: 'flex'}}>
             <FormItem label="申请最低金额">
-              <MyInput defaultValue={platform.minLimit} id="min"/>
+              <MyInput placeholder={platform.minLimit} id="minLimit"/>
             </FormItem>
             <FormItem label="申请最高金额">
-              <MyInput defaultValue={platform.maxLimit} id="max"/>
+              <MyInput placeholder={platform.maxLimit} id="maxLimit"/>
             </FormItem></div>
           <FormItem label="申请条件">
-            <MyInput defaultValue={platform.condition} id="condition"/>
+            <MyInput placeholder={platform.condition} id="condition"/>
           </FormItem>
           <FormItem label="必须材料">
-            <MyInput defaultValue={platform.necessary} id="necessary"/>
+            <MyInput placeholder={platform.necessary} id="necessary"/>
           </FormItem>
           <FormItem label="声明">
-            <MyInput defaultValue={platform.declaration} id="declaration"/>
+            <MyInput placeholder={platform.declaration} id="declaration"/>
           </FormItem>
           <Checkbox.Group
             options={this.state.labels}
-            defaultValue={this.state.selectLabels}
-            onchange={(selectedValues) => this.setState({
-              selectLabels: selectedValues,
-            })}>标签</Checkbox.Group>
+            value={this.state.selectLabels}
+            onChange={(selectedValues) => this.setState({selectLabels: selectedValues,})}/>
           <FormItem>
             <Button type="primary" size="large" onClick={() => {
               let platform = this.validate();
-              if (platform !== undefined) {
+              if (platform) {
                 this.save(platform);
+                browserHistory.push('/admin/platforms')
               }
             }}>保存</Button>
           </FormItem>
         </Form>
       </div>);
+  }
+
+  isEmptyObject(e) {
+    var t;
+    for (t in e)
+      return !1;
+    return !0
   }
 }

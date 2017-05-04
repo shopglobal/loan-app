@@ -5,11 +5,11 @@ import React, {Component} from 'react';
 function beforeUpload(file) {
   const isJPG = (file.type === 'image/jpeg') || (file.type === 'image/jpg') || (file.type === 'image/png');
   if (!isJPG) {
-    message.error('You can only upload JPG file!');
+    alert('上传jpge、jpg、png格式的图片');
   }
   const isLt2M = file.size / 1024 / 1024 < 2;
   if (!isLt2M) {
-    message.error('Image must smaller than 2MB!');
+    alert('图片大小超过2M');
   }
   return isJPG && isLt2M;
 }
@@ -19,25 +19,37 @@ export default class MyUpload extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: this.props.imageUrl,
-    }
+      image: (<Icon type="plus"/>),
+    };
   }
 
   handleChange(info) {
     let file = info.file;
     if (file.status === 'done') {
-      this.setState({url:file.response.url});
       this.props.afterUpload(file.response.url);
     }
   }
 
   render() {
+    console.log('render' + this.props.url);
+
+    setTimeout(() => {
+      if (this.props.url) {
+        this.setState({
+          image: (<img src={this.props.url} alt="" style={{
+            width: 50,
+            height: 50,
+          }}/>),
+        });
+      }
+    }, 2000);
+
     return (
       <Upload
         style={{
-          display:'flex',
-          justifyContent:'center',
-          alignItems:'center',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           border: '1px dashed #d9d9d9',
           borderRadius: 6,
           cursor: 'pointer',
@@ -47,16 +59,9 @@ export default class MyUpload extends Component {
         showUploadList={false}
         action={this.props.action}
         beforeUpload={beforeUpload}
-        onChange={(info)=>this.handleChange(info)}
+        onChange={(info) => this.handleChange(info)}
       >
-        {
-          this.state.url ?
-            <img src={this.state.url} alt="" style={{
-              width: 50,
-              height: 50,
-            }}/> :
-            <Icon type="plus"/>
-        }
+        {this.state.image}
       </Upload>
     );
   }

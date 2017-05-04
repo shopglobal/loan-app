@@ -9,6 +9,7 @@ export default class MyInput extends Component{
 			<Input
         id={this.props.id}
 				defaultValue={this.props.defaultValue}
+        placeholder={this.props.placeholder}
 				style={{width:Size.InputWidth}}/>
 		);
 	}

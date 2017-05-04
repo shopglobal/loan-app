@@ -46,7 +46,7 @@ module.exports = {
 
       let name = uploadedFiles[0].fd;
       return res.json({
-        url:"/images/platformLogo"+name.substr(name.lastIndexOf('\\')),
+        url:"/images/platformLogo/"+name.substr(name.lastIndexOf('\\')+1),
         //filename:name,
       });
     });
