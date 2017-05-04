@@ -15,6 +15,7 @@ module.exports = {
     readQuantity:{
       type:'number',
       columnType:'int',
+      defaultsTo:0
     },
 
     icon:{
@@ -22,21 +23,9 @@ module.exports = {
       defaultsTo:'/images/icon/icon.png',
     },
 
-    date:{
-      type:'string',
-    },
-
     content:{
       type:'string'
     },
-    //顺序字段
-    order:{
-      type:'number',
-      columnType:'int',
-      defaultsTo:1,
-
-    },
-
 
   },
 

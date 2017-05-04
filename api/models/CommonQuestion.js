@@ -11,7 +11,7 @@ module.exports = {
     question:{
       type:'string'
     },
-    anwser:{
+    answer:{
       type:'string'
     },
     //顺序字段

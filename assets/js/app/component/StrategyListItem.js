@@ -23,7 +23,7 @@ export default class StrategyListItem extends Component {
 						<MyIcon size="big" src={strategy.icon}/>
 						<Flex.Item>
 							<div style={styleTitle}>{strategy.title}</div>
-							<div style={styleLitteText}>{strategy.date}</div>
+							<div style={styleLitteText}>{new Date(strategy.updatedAt).toLocaleDateString()}</div>
 						</Flex.Item>
 						<div>{strategy.readQuantity}人阅读</div>
 					</Flex></MyLink>

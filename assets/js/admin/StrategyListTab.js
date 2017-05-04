@@ -5,35 +5,35 @@ import MyButton from "../Tools/MyButton";
 var io = require('../../dependencies/sockets');
 
 
-export default class PlatformListTab extends Component {
+export default class StrategyListTab extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			platforms: [],
+			strategies: [],
 			loading: true,
 			selectedRowKeys:[],
 		};
 	}
 
 	componentWillMount() {
-		io.socket.get('/platform', {}, (platforms, res) => {
+		io.socket.get('/strategy/sort/updatedAt/desc', {}, (strategies, res) => {
 			this.setState({
-				platforms: platforms,
+        strategies: strategies,
 				loading: false,
 			});
 		});
 	}
 
-	deleteOne(platformId){
-		io.socket.delete('/platform/'+platformId);
-		let platforms = this.state.platforms;
-		let len = platforms.length;
+	deleteOne(strategyId){
+		io.socket.delete('/platform/'+strategyId);
+		let strategies = this.state.strategies;
+		let len = strategies.length;
 		for(let i = 0 ; i<len ; i++){
-			if(platforms[i].id === platformId){
-				platforms.splice(i,1);
+			if(strategies[i].id === strategyId){
+        strategies.splice(i,1);
 				this.setState({
-          platforms:platforms,
+          strategies:strategies,
         });
 				return;
 			}
@@ -41,33 +41,32 @@ export default class PlatformListTab extends Component {
 	}
 
 	deleteSome(){
-		let selectedKeys = this.state.selectedRowKeys;
 
 	}
 
 	render() {
 		const columns = [
 			{
-				title: 'logo',
-				dataIndex: 'logo',
-				key: 'logo',
+				title: 'icon',
+				dataIndex: 'icon',
+				key: 'icon',
 				render: url => <MyIcon src={url}/>
 			}, {
-				title: '名称',
-				dataIndex: 'name',
-				key: 'name',
+				title: '标题',
+				dataIndex: 'title',
+				key: 'title',
 			}, {
-				title: '宣传语',
-				dataIndex: 'slogan',
-				key: 'slogan',
+				title: '阅读量',
+				dataIndex: 'readQuantity',
+				key: 'readQuantity',
 			},
 			{
 				title: '操作',
 				key: 'action',
-				render: (text, platform) => (
+				render: (text, strategy) => (
 					<div style={{display:'flex'}}>
-						<MyButton link={"/admin/platform/"+platform.id}>编辑</MyButton>
-						<MyButton onClick={()=>this.deleteOne(platform.id)}>删除</MyButton>
+						<MyButton link={"/admin/strategy/"+strategy.id}>编辑</MyButton>
+						<MyButton onClick={()=>this.deleteOne(strategy.id)}>删除</MyButton>
 					</div>),
 			}
 		];
@@ -98,7 +97,7 @@ export default class PlatformListTab extends Component {
 		const title = (
 			<div style={{display: 'flex',}}>
 				<MyButton onClick={()=>this.deleteSome()}>删除</MyButton>
-				<MyButton link='/admin/platform/0'>添加</MyButton>
+				<MyButton link='/admin/strategy/0'>添加</MyButton>
 			</div>
 		);
 
@@ -109,7 +108,7 @@ export default class PlatformListTab extends Component {
 				rowSelection={rowSelection}
 				columns={columns}
 				rowKey={record => record.id}
-				dataSource={this.state.platforms}
+				dataSource={this.state.strategies}
 				loading={this.state.loading}
 			/>
 		);

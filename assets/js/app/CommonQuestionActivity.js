@@ -22,7 +22,7 @@ export default class CommonQuestionActivity extends Component {
 			});
 		};
 
-		io.socket.get('/commonquestion', {}, (questions, res) => f(questions, res));
+		io.socket.get('/commonquestion/sort/order/asc', {}, (questions, res) => f(questions, res));
 
 	}
 
@@ -32,7 +32,7 @@ export default class CommonQuestionActivity extends Component {
 			return (<div>
 				<MyLittleTitleAndContent
 					key={question.id}
-					title={question.question}>{question.anwser}
+					title={question.question}>{question.answer}
 				</MyLittleTitleAndContent>
 				<MyPlaceHolder/>
 			</div>);

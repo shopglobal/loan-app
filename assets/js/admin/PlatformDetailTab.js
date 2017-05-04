@@ -285,10 +285,12 @@ export default class PlatformDetailTab extends Component {
           <FormItem label="声明">
             <MyInput placeholder={platform.declaration} id="declaration"/>
           </FormItem>
-          <Checkbox.Group
-            options={this.state.labels}
-            value={this.state.selectLabels}
-            onChange={(selectedValues) => this.setState({selectLabels: selectedValues,})}/>
+          <FormItem label="标签">
+            <Checkbox.Group
+              options={this.state.labels}
+              value={this.state.selectLabels}
+              onChange={(selectedValues) => this.setState({selectLabels: selectedValues,})}/>
+          </FormItem>
           <FormItem>
             <Button type="primary" size="large" onClick={() => {
               let platform = this.validate();

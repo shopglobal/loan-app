@@ -38,6 +38,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   'get /platform/label/:name':'PlatformController.getPlatformByLabelName',
+  'get /platform/select/:props':'PlatformController.selectSomePropsPlatform',
   'patch /platform/:id/setLabel':'PlatformController.setLabel',
   'patch /platform/:id/setPlan':'PlatformController.setPlan',
   'post /platform/uploadLogo':'PlatformController.uploadLogo',
@@ -46,7 +47,10 @@ module.exports.routes = {
 
   'get /label/name/:name':'LabelController.getLabelByName',
   'get /label/show':'LabelController.getShowLabel',
+  'get /label/select/:props':'LabelController.selectSomePropsLabel',
   'get /label/noPlatforms':'LabelController.getLabelNoPlatforms',
+  'post /label/uploadIcon':'LabelController.uploadIcon',
+  'patch /label/:id/setPlatform':'LabelController.setPlatform',
 
 
   'post /user/login':'UserController.login',
@@ -59,6 +63,13 @@ module.exports.routes = {
   'get /order/user/:id':'OrderController.getOrderByUser',
 
   'get /ad/location/:location':'AdController.getAdByLocation',
+  'post /ad/uploadImage':'AdController.uploadImage',
+  'get /ad/select/:props':'AdController.selectSomePropsAd',
+
+  'get /commonquestion/sort/:prop/:ascOrDesc':'CommonQuestionController.getCommonQuestionSortByProp',
+
+  'get /strategy/sort/:prop/:ascOrDesc':'StrategyController.getStrategySortByProp',
+  'post /strategy/uploadIcon':'StrategyController.uploadIcon',
 
 
 };

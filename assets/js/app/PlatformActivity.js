@@ -39,13 +39,8 @@ export default class PlatformActivity extends Component {
         "orders": []
       },
     }
-    console.log('platform construct');
   }
 
-  componentWillMount(){
-    console.log('platform will mount');
-
-  }
 
 	render() {
 

@@ -19,7 +19,7 @@ export default class StrategyListActivity extends Component {
   }
 
   componentWillMount(){
-    io.socket.get('/strategy' , {} , (strategies , res)=>{
+    io.socket.get('/strategy/sort/updatedAt/desc' , {} , (strategies , res)=>{
       this.setState({
         strategies:strategies,
         dataSource: this.state.dataSource.cloneWithRows(strategies),

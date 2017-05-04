@@ -25,7 +25,7 @@ export default class LabelTab extends Component {
 			});
 		}
 
-		io.socket.get('/label/show', {}, (labels, res) => f(labels, res));
+		io.socket.get('/label/noPlatforms', {}, (labels, res) => f(labels, res));
 	}
 
 

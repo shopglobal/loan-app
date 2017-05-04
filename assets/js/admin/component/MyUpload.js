@@ -30,32 +30,35 @@ export default class MyUpload extends Component {
     }
   }
 
-  render() {
-    console.log('render' + this.props.url);
-
-    setTimeout(() => {
-      if (this.props.url) {
+  componentWillReceiveProps(props) {
+    let url = props.url;
+    if (url !== undefined) {
+      setTimeout(() => {
         this.setState({
-          image: (<img src={this.props.url} alt="" style={{
-            width: 50,
-            height: 50,
-          }}/>),
+          image: (<img src={url} alt="" style={Object.assign({width: 50, height: 50,}, props.style)}/>),
         });
-      }
-    }, 2000);
+      }, 2000);
+    }
+  }
+
+  render() {
+
+    let style = {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      border: '1px dashed #d9d9d9',
+      borderRadius: 6,
+      cursor: 'pointer',
+      width: 50,
+      height: 50,
+    };
+
+    style = Object.assign(style, this.props.style);
 
     return (
       <Upload
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          border: '1px dashed #d9d9d9',
-          borderRadius: 6,
-          cursor: 'pointer',
-          width: 50,
-          height: 50,
-        }}
+        style={style}
         showUploadList={false}
         action={this.props.action}
         beforeUpload={beforeUpload}

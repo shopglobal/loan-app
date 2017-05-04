@@ -5,35 +5,35 @@ import MyButton from "../Tools/MyButton";
 var io = require('../../dependencies/sockets');
 
 
-export default class PlatformListTab extends Component {
+export default class LabelListTab extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			platforms: [],
+			labels: [],
 			loading: true,
 			selectedRowKeys:[],
 		};
 	}
 
 	componentWillMount() {
-		io.socket.get('/platform', {}, (platforms, res) => {
+		io.socket.get('/label/select/name,icon', {}, (labels, res) => {
 			this.setState({
-				platforms: platforms,
+        labels: labels,
 				loading: false,
 			});
 		});
 	}
 
-	deleteOne(platformId){
-		io.socket.delete('/platform/'+platformId);
-		let platforms = this.state.platforms;
-		let len = platforms.length;
+	deleteOne(labelId){
+		io.socket.delete('/label/'+labelId);
+		let labels = this.state.labels;
+		let len = labels.length;
 		for(let i = 0 ; i<len ; i++){
-			if(platforms[i].id === platformId){
-				platforms.splice(i,1);
+			if(labels[i].id === labelId){
+				labels.splice(i,1);
 				this.setState({
-          platforms:platforms,
+          labels:labels,
         });
 				return;
 			}
@@ -41,33 +41,27 @@ export default class PlatformListTab extends Component {
 	}
 
 	deleteSome(){
-		let selectedKeys = this.state.selectedRowKeys;
-
 	}
 
 	render() {
 		const columns = [
 			{
-				title: 'logo',
-				dataIndex: 'logo',
-				key: 'logo',
+				title: 'icon',
+				dataIndex: 'icon',
+				key: 'icon',
 				render: url => <MyIcon src={url}/>
 			}, {
 				title: '名称',
 				dataIndex: 'name',
 				key: 'name',
-			}, {
-				title: '宣传语',
-				dataIndex: 'slogan',
-				key: 'slogan',
 			},
 			{
 				title: '操作',
 				key: 'action',
-				render: (text, platform) => (
+				render: (text, label) => (
 					<div style={{display:'flex'}}>
-						<MyButton link={"/admin/platform/"+platform.id}>编辑</MyButton>
-						<MyButton onClick={()=>this.deleteOne(platform.id)}>删除</MyButton>
+						<MyButton link={"/admin/label/"+label.id}>编辑</MyButton>
+						<MyButton onClick={()=>this.deleteOne(label.id)} disabled={label.name == "新上平台"||label.name=="热门"}>删除</MyButton>
 					</div>),
 			}
 		];
@@ -98,7 +92,7 @@ export default class PlatformListTab extends Component {
 		const title = (
 			<div style={{display: 'flex',}}>
 				<MyButton onClick={()=>this.deleteSome()}>删除</MyButton>
-				<MyButton link='/admin/platform/0'>添加</MyButton>
+				<MyButton link='/admin/label/0'>添加</MyButton>
 			</div>
 		);
 
@@ -109,7 +103,7 @@ export default class PlatformListTab extends Component {
 				rowSelection={rowSelection}
 				columns={columns}
 				rowKey={record => record.id}
-				dataSource={this.state.platforms}
+				dataSource={this.state.labels}
 				loading={this.state.loading}
 			/>
 		);
