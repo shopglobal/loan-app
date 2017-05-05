@@ -77,7 +77,7 @@ export default class CommonQuestionDetailTab extends Component {
         newQuestion[temp.id] = text;
       }
       let order = newQuestion.order;
-      if (!(/\d+/.test(order))) {
+      if (!(/^\d+$/.test(order))) {
         alert("顺序为正整数！");
         return;
       }
@@ -93,7 +93,7 @@ export default class CommonQuestionDetailTab extends Component {
       }
       if ('order' in newQuestion) {
         let order = newQuestion.order;
-        if (!(/\d+/.test(order))) {
+        if (!(/^\d+$/.test(order))) {
           alert("顺序为正整数！");
           return;
         }

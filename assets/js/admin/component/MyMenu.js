@@ -28,8 +28,8 @@ export default class MyMenu extends Component {
 				</SubMenu>
 
         <Menu.Item key="2"><MyLink to="/admin/ads">广告管理</MyLink></Menu.Item>
+        <Menu.Item key="7"><MyLink to="/admin/worthquestions">身价测试题目管理</MyLink></Menu.Item>
         <Menu.Item key="3"><MyLink to="/admin/labels">标签管理</MyLink></Menu.Item>
-
 
 				<Menu.Item key="4"><MyLink to="/admin/setting">系统设置</MyLink></Menu.Item>
 				<Menu.Item key="5"><MyLink to="/admin/strategies">借款攻略</MyLink></Menu.Item>

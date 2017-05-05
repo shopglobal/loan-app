@@ -105,7 +105,7 @@ export default class StrategyDetailTab extends Component {
 
     let readQuantity = document.getElementById('readQuantity').value;
     if (readQuantity != "") {
-      if (/\d+/.test(readQuantity)) {
+      if (/^\d+$/.test(readQuantity)) {
         newStrategy.readQuantity = readQuantity;
       } else {
         alert('阅读量为正整数！');

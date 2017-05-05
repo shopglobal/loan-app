@@ -19,6 +19,8 @@ import CommonQuestionListTab from './admin/CommonQuestionListTab';
 import CommonQuestionDetailTab from './admin/CommonQuestionDetailTab';
 import StrategyListTab from './admin/StrategyListTab';
 import StrategyDetailTab from './admin/StrategyDetailTab';
+import WorthTestListTab from './admin/WorthTestListTab';
+import WorthTestDetailTab from './admin/WorthTestDetailTab';
 
 
 const router = (
@@ -36,6 +38,8 @@ const router = (
       <Route path='commonquestion/:id' component={CommonQuestionDetailTab}/>
       <Route path='strategies' component={StrategyListTab}/>
       <Route path='strategy/:id' component={StrategyDetailTab}/>
+      <Route path='worthquestions' component={WorthTestListTab}/>
+      <Route path='worthquestion/:id' component={WorthTestDetailTab}/>
       <Route path='setting' component={SettingTab}/>
     </Route>
   </Router>

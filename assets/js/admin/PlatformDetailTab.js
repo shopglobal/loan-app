@@ -164,7 +164,7 @@ export default class PlatformDetailTab extends Component {
       for (let i = flagIndex; i < len; i++) {
         temp = example[i];
         text = document.getElementById(temp.id).value;
-        if (!(/\d+/.test(text))) {
+        if (!(/^\d+$/.test(text))) {
           alert(temp.alertStr);
           return;
         }
@@ -199,7 +199,7 @@ export default class PlatformDetailTab extends Component {
         temp = example[i];
         text = document.getElementById(temp.id).value;
         if (text != "") {
-          if (!(/\d+/.test(text))) {
+          if (!(/^\d+$/.test(text))) {
             alert(temp.alertStr);
             return;
           }

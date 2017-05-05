@@ -68,6 +68,8 @@ module.exports.routes = {
 
   'get /commonquestion/sort/:prop/:ascOrDesc':'CommonQuestionController.getCommonQuestionSortByProp',
 
+  'get /worthquestion/sort/:prop/:ascOrDesc':'WorthQuestionController.getWorthQuestionSortByProp',
+
   'get /strategy/sort/:prop/:ascOrDesc':'StrategyController.getStrategySortByProp',
   'post /strategy/uploadIcon':'StrategyController.uploadIcon',
 
