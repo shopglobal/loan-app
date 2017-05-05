@@ -14,7 +14,7 @@ export default class WorthTestActivity extends Component {
       questions: [{question: "", answers: []}],
       index: 0,
       worth: 0,
-      checked: 0,
+      checked:0
     };
   }
 
@@ -38,7 +38,7 @@ export default class WorthTestActivity extends Component {
       });
 
       this.setState({
-        questions: newQuestions,
+        questions:newQuestions
       });
     });
 
@@ -56,7 +56,7 @@ export default class WorthTestActivity extends Component {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            height: 150,
+            height: 100,
             width: Size.ScreenWidth
           }}>{this.state.worth / 10000}万元
         </div>
@@ -76,17 +76,18 @@ export default class WorthTestActivity extends Component {
                 border: '1 solid'
               }}><Radio
               key={i.value}
+              checked={this.state.checked===i.value}
               onChange={() => {
-                this.state.checked = i.value;
+                this.setState({
+                  checked:i.value,
+                });
                 this.state.worth += i.value;
                 let index = this.state.index + 1;
                 if (index < this.state.questions.length) {
-                  setTimeout(() => {
-                    this.setState({
-                      index: index,
-                      checked:0
-                    })
-                  }, 800);
+                  setTimeout(() => this.setState({
+                    index:index,
+                    checked:0,
+                  }), 800);
                 }
               }}
             >{i.label}</Radio></div>
