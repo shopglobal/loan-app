@@ -190,7 +190,7 @@ export default class WorthTestDetailTab extends Component {
             <FormItem label="选项1">
               <MyInput placeholder={question.answer1} id="answer1"/>
             </FormItem>
-            <FormItem label="价值1">
+            <FormItem label="价值1(单位：元)">
               <MyInput placeholder={question.worth1} id="worth1"/>
             </FormItem>
           </div>
@@ -198,7 +198,7 @@ export default class WorthTestDetailTab extends Component {
             <FormItem label="选项2">
               <MyInput placeholder={question.answer2} id="answer2"/>
             </FormItem>
-            <FormItem label="价值2">
+            <FormItem label="价值2(单位：元)">
               <MyInput placeholder={question.worth2} id="worth2"/>
             </FormItem>
           </div>
@@ -206,7 +206,7 @@ export default class WorthTestDetailTab extends Component {
             <FormItem label="选项3">
               <MyInput placeholder={question.answer3} id="answer3"/>
             </FormItem>
-            <FormItem label="价值3">
+            <FormItem label="价值3(单位：元)">
               <MyInput placeholder={question.worth3} id="worth3"/>
             </FormItem>
           </div>
@@ -214,7 +214,7 @@ export default class WorthTestDetailTab extends Component {
             <FormItem label="选项4(可以不填)">
               <MyInput placeholder={question.answer4} id="answer4"/>
             </FormItem>
-            <FormItem label="价值4">
+            <FormItem label="价值4(单位：元)">
               <MyInput placeholder={question.worth4} id="worth4"/>
             </FormItem>
           </div>

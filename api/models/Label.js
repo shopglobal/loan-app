@@ -22,7 +22,7 @@ module.exports = {
     },
     show:{
       type:'boolean',
-      defaultsTo:false,
+      defaultsTo:true,
     }
   }
 };

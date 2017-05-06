@@ -14,10 +14,10 @@ export default class MyButton extends Component {
 			textDecoration: 'none',
 			color: Color.Font,
 			lineHeight: 'normal',
-			padding: Size.Padding,
+			padding: Size.Padding*2,
 			height: 'auto',
 			width: 'auto',
-			fontSize:Size.NormalFontSize,
+			fontSize:Size.BigFontSize,
 		};
 		styleButton = Object.assign(styleButton, this.props.style);
 

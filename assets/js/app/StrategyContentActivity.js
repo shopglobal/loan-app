@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MyNavBar from "./component/MyNavBar";
 import Size from './style/Size';
 import MyPlaceHolder from "./component/MyPlaceHolder";
+import {browserHistory} from 'react-router';
 
 var io = require('../../dependencies/sockets');
 
@@ -28,7 +29,7 @@ export default class StrategyContentActivity extends Component {
   render() {
     return (
       <div>
-        <MyNavBar>{this.state.strategy.title}</MyNavBar>
+        <MyNavBar onLeftClick={()=>browserHistory.goBack()}>{this.state.strategy.title}</MyNavBar>
         <iframe
           width={Size.ScreenWidth}
           src={this.state.strategy.content}

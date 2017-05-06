@@ -11,6 +11,9 @@ module.exports = {
     username: {
       type: 'string'
     },
+    password:{
+      type:'string'
+    },
     phone:{
       type:'string',
       columnType:'varchar(11)',

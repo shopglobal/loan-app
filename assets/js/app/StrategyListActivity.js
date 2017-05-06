@@ -38,7 +38,7 @@ export default class StrategyListActivity extends Component {
   render() {
     return (
       <div>
-        <MyNavBar>借款攻略</MyNavBar>
+        <MyNavBar onLeftClick={()=>browserHistory.goBack()}>借款攻略</MyNavBar>
         <ListView
           style={styleListView}
           dataSource={this.state.dataSource}

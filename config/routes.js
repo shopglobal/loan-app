@@ -54,6 +54,7 @@ module.exports.routes = {
 
 
   'post /user/login':'UserController.login',
+  'post /user/adminLogin':'UserController.adminLogin',
   'get /user/hasLogin':'UserController.hasLogin',
   'get /user/logout':'UserController.logout',
   'get /user/verification/:phone':'UserController.generateVerification',
@@ -73,5 +74,8 @@ module.exports.routes = {
   'get /strategy/sort/:prop/:ascOrDesc':'StrategyController.getStrategySortByProp',
   'post /strategy/uploadIcon':'StrategyController.uploadIcon',
 
+  'patch /plan/:id/setPlatform':'PlanController.setPlatform',
+  'get /plan/select/:props':'PlanController.selectSomePropsPlan',
+  'get /plan/:id/select/:props':'PlanController.selectOnePlanSomeProps',
 
 };

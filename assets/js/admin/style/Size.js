@@ -3,12 +3,15 @@ module.exports = {
 	ScreenWidth:document.documentElement.clientWidth,
 	ScreenHeight:document.documentElement.clientHeight,
 
-	HeaderHeight:100,
-	MenuHeight:document.documentElement.clientHeight-100,
+	//修改一下两项，要跟着修改后面相对应的思想
+	HeaderHeight:50,
 	MenuWidth:240,
+	MenuHeight:document.documentElement.clientHeight-50,
 
 	ContentWidth:document.documentElement.clientWidth-240,
-	ContentHeight:document.documentElement.clientHeight-100,
+	ContentHeight:document.documentElement.clientHeight-50,
+
+
 
 	InputWidth:240,
 

@@ -50,7 +50,7 @@ export default class StrategyListTab extends Component {
 				title: 'icon',
 				dataIndex: 'icon',
 				key: 'icon',
-				render: url => <MyIcon src={url}/>
+				render: url => <MyIcon type={url} src={url}/>
 			}, {
 				title: '标题',
 				dataIndex: 'title',

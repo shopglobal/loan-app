@@ -5,7 +5,6 @@ import HomeTab from './HomeTab';
 import OrderTab from './OrderTab';
 import MeTab from './MeTab';
 import LabelTab from './LabelTab';
-import PlatformsActivity from "./PlatformsActivity";
 
 import Size from './style/Size';
 
@@ -54,8 +53,8 @@ class MainActivity extends Component {
                 <TabBar.Item
                     title="首页"
                     key={homeTabKey}
-                    icon={{uri: 'images/icon/icon.png'}}
-                    selectedIcon={{uri:'https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg'}}
+                    icon={{uri: 'images/icon/home.png'}}
+                    selectedIcon={{uri:'images/icon/home_selected.png'}}
                     selected={this.state.selectedTab === homeTabKey}
                     onPress={() => {
                         this.setState({
@@ -67,8 +66,8 @@ class MainActivity extends Component {
                 </TabBar.Item>
 
                 <TabBar.Item
-                    icon={{uri: 'images/icon/icon.png'}}
-                    selectedIcon={{uri: 'images/icon/icon.png'}}
+                    icon={{uri: 'images/icon/discovery.png'}}
+                    selectedIcon={{uri: 'images/icon/discovery_selected.png'}}
                     title="发现"
                     key={labelTabKey}
                     selected={this.state.selectedTab === labelTabKey}
@@ -82,8 +81,8 @@ class MainActivity extends Component {
                 </TabBar.Item>
 
                 <TabBar.Item
-                    icon={{uri:'https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg'}}
-                    selectedIcon={{uri:'https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg'}}
+                    icon={{uri:'images/icon/order.png'}}
+                    selectedIcon={{uri:'images/icon/order_selected.png'}}
                     title="订单"
                     key={orderTabKey}
                     selected={this.state.selectedTab === orderTabKey}
@@ -98,8 +97,8 @@ class MainActivity extends Component {
 
 
                 <TabBar.Item
-                    icon={{uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg'}}
-                    selectedIcon={{uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg'}}
+                    icon={{uri: 'images/icon/me.png'}}
+                    selectedIcon={{uri: 'images/icon/me_selected.png'}}
                     title="我的"
                     key={meTabKey}
                     selected={this.state.selectedTab === meTabKey}

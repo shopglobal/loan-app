@@ -25,7 +25,7 @@ export default class LabelTab extends Component {
 			});
 		}
 
-		io.socket.get('/label/noPlatforms', {}, (labels, res) => f(labels, res));
+		io.socket.get('/label/show', {}, (labels, res) => f(labels, res));
 	}
 
 
@@ -46,11 +46,11 @@ export default class LabelTab extends Component {
 
 		return (
 			<div>
-				<MyNavBar leftIcon={leftVisibility} onLeftClick={() => alert('leftClick')}>
+				<MyNavBar leftIcon={leftVisibility} onLeftClick={() => browserHistory.push('/')}>
 					贷款大全
 				</MyNavBar>
 				<List>
-					<NormalListItem link="/platforms/label/0">所有平台</NormalListItem>
+					<NormalListItem leftIcon="/images/labelIcon/allPlatform.png" link="/platforms/label/0">所有平台</NormalListItem>
 					<MyPlaceHolder/>
 					{labelList}
 				</List>

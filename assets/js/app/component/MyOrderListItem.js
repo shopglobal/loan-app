@@ -19,11 +19,11 @@ export default class MyOrderListItem extends Component {
 				<MyLink to={this.props.link}>
 					<Flex>
 
-						<MyIcon size="big"/>
+						<MyIcon src={order.platform.logo} size="big"/>
 						<Flex.Item>
 							<div>
 								<Flex>
-									<div style={{fontSize: Size.NormalFontSize}}>{order.platform.name}</div>
+									<div style={{fontSize: Size.BigFontSize}}>{order.platform.name}</div>
 									<div style={{width: 10}}></div>
 									{/*<div style={styleLitteText}>-未到账</div>*/}
 								</Flex>

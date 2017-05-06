@@ -2,7 +2,9 @@ import Color from './Color';
 import Size from './Size';
 
 module.exports = {
-	padding: Size.Padding,
+	padding: Size.Padding*2,
+	paddingLeft:Size.PagePaddingLeftAndRight,
+	paddingRight:Size.PagePaddingLeftAndRight,
 	borderTopStyle: 'solid',
 	borderTopColor: Color.Border,
 	borderBottomStyle: 'solid',

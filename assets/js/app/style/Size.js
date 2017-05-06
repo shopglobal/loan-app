@@ -5,9 +5,9 @@ module.exports = {
 
 
 	//如果修改导航栏高度和placeHolder高度，一定要修改这里
-	NormalContentHeight:document.documentElement.clientHeight/9*8-15,
+	NormalContentHeight:document.documentElement.clientHeight/16*15-15,
 	PlaceHolderDefaultHeight:15,
-	NavHeight: document.documentElement.clientHeight / 9,
+	NavHeight: document.documentElement.clientHeight / 16,
 	NavWidth: document.documentElement.clientWidth,
 
 
@@ -24,19 +24,26 @@ module.exports = {
 	ButtonWidth:document.documentElement.clientWidth * 8 / 9,
 	PickerHeight:document.documentElement.clientHeight*2/5,
 
+	InputItemHeight:50,
+	InputHeight:40,
+
 
 	NormalListItemHeight: 50,
 	SmallListItemHeight: 10,
 	MultiListItemHeight: 40,
 
-
-	SquareHeight :50,
+	//如若修改Padding，需要修改Squire相关数据
+	PagePaddingLeftAndRight:20,
 	Padding:5,
 
-	TitleFontSize: 30,
-	BigFontSize:40,
-	NormalFontSize: 20,
-	SmallFontSize: 15,
+	SquareHeight :50,
+	SquareWidth:(document.documentElement.clientWidth-40-15)/4,
+
+
+	TitleFontSize: 20,
+	BigFontSize:20,
+	NormalFontSize: 15,
+	SmallFontSize: 10,
 	LittleFontSize:3,
 
 }

@@ -3,6 +3,7 @@ import MyLittleTitleAndContent from "./component/MyLittleTitleAndContent";
 import MyPlaceHolder from "./component/MyPlaceHolder";
 import MyNavBar from "./component/MyNavBar";
 import Size from './style/Size';
+import {browserHistory} from 'react-router';
 
 var io = require('../../dependencies/sockets');
 
@@ -39,7 +40,7 @@ export default class CommonQuestionActivity extends Component {
 		})
 		return (
 			<div>
-				<MyNavBar>常见问题</MyNavBar>
+				<MyNavBar onLeftClick={()=>browserHistory.goBack()}>常见问题</MyNavBar>
 				<div style={{
 					height:Size.NormalContentHeight,
 					overflow: 'auto',

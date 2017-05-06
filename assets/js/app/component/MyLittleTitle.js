@@ -1,21 +1,27 @@
-import React ,{Component} from 'react';
+import React, {Component} from 'react';
 import {Flex} from 'antd-mobile';
 import Color from '../style/Color';
+import Size from '../style/Size';
 
-export default class MyLittleTitle extends Component{
+export default class MyLittleTitle extends Component {
 
 
-	render(){
-		let textColor = this.props.color;
-		if (textColor ===undefined){
-			textColor = Color.NormalText;
-		}
+	render() {
+		let style = Object.assign({color: Color.NormalText, fontSize: Size.NormalFontSize}, this.props.color);
 
-		return(
-			<Flex style={{backgroundColor:Color.White , padding:5}}>
-				<div style={{paddingLeft:10,paddingRight:10}}>|</div>
-				<div style={{color:textColor}}>{this.props.children || this.props.title}</div>
-			</Flex>
+
+		return (
+			<div style={{
+				display:'flex',
+				backgroundColor: Color.White,
+				padding: Size.Padding,
+				paddingLeft:Size.PagePaddingLeftAndRight,
+				paddingRight:Size.PagePaddingLeftAndRight,
+				alignItems:'center'
+			}}>
+				<div style={{paddingRight: 10,fontSize:Size.NormalFontSize}}>|</div>
+				<div style={style}>{this.props.children || this.props.title}</div>
+			</div>
 		);
 	}
 }

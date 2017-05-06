@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Flex} from "antd-mobile";
 import MyIcon from '../../Tools/MyIcon';
 
+import Size from '../style/Size';
 import Color from '../style/Color';
 import styleListItem from '../style/styleListItem';
 import styleLitteText from '../style/styleLittleText';
@@ -23,9 +24,16 @@ export default class GuideListItem extends Component {
 						<MyIcon size="big" src={guide.icon}/>
 						<Flex.Item>
 							<div style={styleTitle}>{guide.title}</div>
+							<div
+							style={{
+								height:10
+							}}></div>
 							<div style={styleLitteText}>{guide.subtitle}</div>
 						</Flex.Item>
-						<div>{guide.readQuantity}人阅读</div>
+						<div
+							style={{
+								fontSize: Size.NormalFontSize
+							}}>{guide.readQuantity}人阅读</div>
 					</Flex></MyLink>
 			</div>
 

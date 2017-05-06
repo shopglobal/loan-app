@@ -49,7 +49,7 @@ export default class LabelListTab extends Component {
 				title: 'icon',
 				dataIndex: 'icon',
 				key: 'icon',
-				render: url => <MyIcon src={url}/>
+				render: url => <MyIcon type={url} src={url}/>
 			}, {
 				title: '名称',
 				dataIndex: 'name',

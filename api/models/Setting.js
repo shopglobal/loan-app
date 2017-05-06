@@ -26,6 +26,9 @@ module.exports = {
     msgUrl:{
       type:'string',
     },
+    about:{
+      type:'string'
+    }
 
   },
 

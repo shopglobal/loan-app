@@ -21,6 +21,9 @@ import StrategyListTab from './admin/StrategyListTab';
 import StrategyDetailTab from './admin/StrategyDetailTab';
 import WorthTestListTab from './admin/WorthTestListTab';
 import WorthTestDetailTab from './admin/WorthTestDetailTab';
+import LoginActivity from './admin/LoginActivity';
+import PlanListTab from './admin/PlanListTab';
+import PlanDetailTab from './admin/PlanDetailTab';
 
 
 const router = (
@@ -40,8 +43,11 @@ const router = (
       <Route path='strategy/:id' component={StrategyDetailTab}/>
       <Route path='worthquestions' component={WorthTestListTab}/>
       <Route path='worthquestion/:id' component={WorthTestDetailTab}/>
+      <Route path='plans' component={PlanListTab}/>
+      <Route path='plan/:id' component={PlanDetailTab}/>
       <Route path='setting' component={SettingTab}/>
     </Route>
+    <Route path='/admin/login' component={LoginActivity}/>
   </Router>
 );
 

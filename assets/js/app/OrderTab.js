@@ -53,7 +53,7 @@ export default class OrderTab extends Component {
           padding: Size.ScreenWidth / 4,
           height: Size.NormalContentHeight-Size.TabBarHeight,
         }}>
-          <MyButton link="/login" style={{height: 100}}>登录</MyButton>
+          <MyButton link="/login" style={{height: 50}}>登录</MyButton>
         </div>);
       } else {
         return (<ListView

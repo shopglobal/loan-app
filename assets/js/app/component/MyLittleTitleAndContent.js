@@ -10,7 +10,7 @@ export default class MyLittleTitleAndContent extends Component {
 
 
 		return (
-			<div style={{backgroundColor: Color.White, padding: Size.Padding}}>
+			<div style={{backgroundColor: Color.White}}>
 				<MyLittleTitle color={Color.LittleText}>{this.props.title}</MyLittleTitle>
 				<div style={{
 					marginLeft: Size.Padding * 2,
@@ -19,8 +19,9 @@ export default class MyLittleTitleAndContent extends Component {
 					borderTopColor: Color.Border,
 				}}></div>
 				<div style={{
+					fontSize:Size.NormalFontSize,
 					paddingTop:Size.Padding,
-					paddingLeft: Size.Padding * 2,
+					paddingLeft: Size.Padding * 4,
 					paddingRight: Size.Padding * 2,
 					paddingBottom: Size.Padding * 2,
 				}}>

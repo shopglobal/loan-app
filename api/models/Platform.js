@@ -54,7 +54,7 @@ module.exports = {
     },
     plans: {
       collection:'plan',
-      via:'platform'
+      via:'platforms'
     },
     labels: {
       collection:'label',
@@ -67,6 +67,9 @@ module.exports = {
     url:{
       type:'string'
     },
+    rate:{
+      type:'string'
+    }
   }
 };
 

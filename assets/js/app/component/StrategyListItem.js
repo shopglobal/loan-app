@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Flex} from "antd-mobile";
 import MyIcon from '../../Tools/MyIcon';
 
+import Size from '../style/Size';
 import Color from '../style/Color';
 import styleListItem from '../style/styleListItem';
 import styleLitteText from '../style/styleLittleText';
@@ -25,7 +26,10 @@ export default class StrategyListItem extends Component {
 							<div style={styleTitle}>{strategy.title}</div>
 							<div style={styleLitteText}>{new Date(strategy.updatedAt).toLocaleDateString()}</div>
 						</Flex.Item>
-						<div>{strategy.readQuantity}人阅读</div>
+						<div
+							style={{
+								fontSize:Size.NormalFontSize
+							}}>{strategy.readQuantity}人阅读</div>
 					</Flex></MyLink>
 			</div>
 

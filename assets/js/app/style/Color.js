@@ -1,5 +1,7 @@
 module.exports = {
 
+  Basic:'#EA544A',
+
 	Red: '#FF0000',
 	AliceBlue: '#F0F8FF',
 	Dodgerblue: '#1E90FF',
@@ -9,11 +11,11 @@ module.exports = {
 
 	Border: '#F0F8FF',
 	Font: '#000000',
-	NavBarBack: '#1E90FF',
+	NavBarBack: '#EA544A',
 	LittleText:'#888',
 	NormalText:'#000000',
 	PlaceHolderDefaultColor:'#F0F8FF',
-	Square:'#1E90FF',
+	Square:'#EA544A',
 
 
 }

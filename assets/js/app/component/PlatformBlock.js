@@ -23,7 +23,7 @@ export default class PlatformBlock extends Component {
 					{this.props.title}</div>
 				<div style={{height:5}}></div>
 				<div style={{
-					fontSize: Size.BigFontSize,
+					fontSize: Size.TitleFontSize,
 					color: Color.Dodgerblue,
 				}}>
 					{this.props.children || this.props.content}</div>

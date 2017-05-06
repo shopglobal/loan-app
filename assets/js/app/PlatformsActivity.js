@@ -152,8 +152,7 @@ export default class PlatformsActivity extends Component {
 
 		return (
 			<div>
-				<MyNavBar onLeftClick={() => alert('leftClick')} rightIcon='filter'
-				          onRightClick={() => alert('rightClick')}>贷款平台</MyNavBar>
+				<MyNavBar onLeftClick={() => browserHistory.goBack()}>贷款平台</MyNavBar>
 				<MyPicker
 					data={this.state.labelsAndMoneyFilter}
 					cols='2'

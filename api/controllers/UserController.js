@@ -40,6 +40,20 @@ module.exports = {
 
   },
 
+  adminLogin:(req ,res)=>{
+    User.findOne(req.allParams()).exec((err , user)=>{
+      if(err){
+        return res.serverError(err);
+      }
+      if(user === undefined){
+        return res.json(undefined);
+      }else {
+        req.session.user = user;
+        return res.json(user);
+      }
+    });
+  },
+
   hasLogin: (req, res) => {
     return res.json(req.session.user);
   },

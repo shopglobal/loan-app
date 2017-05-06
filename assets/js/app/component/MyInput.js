@@ -34,23 +34,29 @@ export default class MyInput extends Component {
 
 	render() {
 
-		let styleInput = {
-			//border: '1',
+		let styleInput = Object.assign({
+			fontSize:Size.BigFontSize,
+			border: '0',
 			//textAlign:'right',
-			width: 'auto',
-		};
+			height:Size.InputHeight,
+			marginLeft:Size.Padding*2
+		},this.props.styleInput);
 
 		let style = Object.assign({
 			alignItems: 'center',
 			display: 'flex',
 			flex: 1,
 			backgroundColor: Color.White,
-			height: Size.NormalListItemHeight,
+			height: Size.InputItemHeight,
 		}, this.props.style);
 
 		return (
 			<div style={style}>
-				<div>{this.props.children || this.props.title}</div>
+				<div
+				style={{
+					fontSize:Size.BigFontSize
+				}}
+				>{this.props.children || this.props.title}</div>
 				<input
 					style={styleInput} type={this.props.type}
 					id={this.state.id}

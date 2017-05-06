@@ -33,10 +33,10 @@ export default class NormalListItem extends Component {
 			<div onClick={this.props.onClick} style={styleListItem}>
 				<MyLink to={this.props.link}>
 					<Flex>
-						<MyIcon type={this.props.leftIcon} size={size}/>
-						<div style={{fontSize:fontSize , flex:1}}>{this.props.children}</div>
+						<MyIcon type={this.props.leftIcon} src={this.props.leftIcon} size={size}/>
+						<div style={{fontSize:fontSize , flex:1 ,paddingLeft:Size.Padding*3}}>{this.props.children}</div>
 						<div style={{fontSize:fontSize}}>{this.props.extra}</div>
-						<MyIcon type={this.props.rightIcon} size={size}/>
+						<MyIcon type={rightIcon} size={size}/>
 					</Flex>
 				</MyLink>
 			</div>

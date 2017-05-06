@@ -15,6 +15,8 @@ export default class PlatformDetailTab extends Component {
     this.state = {
       newLogo: false,
       imageUrl: undefined,
+      selectPlans:[],
+      plans:[],
       selectLabels: [],
       labels: [],
       platform: {
@@ -40,6 +42,21 @@ export default class PlatformDetailTab extends Component {
 
   componentWillMount() {
     let id = this.props.params.id;
+
+    io.socket.get('/plan/select/rate,time' , {} ,(plans , res)=>{
+      let formatPlans = [];
+      plans.map((plan) => {
+        formatPlans.push({
+          label: plan.time+"--"+plan.rate,
+          value: plan.id,
+        });
+      });
+      if (formatPlans.length !== 0) {
+        this.setState({
+          plans: formatPlans
+        });
+      }
+    });
 
     io.socket.get('/label/noPlatforms', {}, (labels, res) => {
       let formatLabels = [];
@@ -67,9 +84,19 @@ export default class PlatformDetailTab extends Component {
           platform.labels = formatLabels;
         }
 
+        let plans = platform.plans;
+        if (plans.length !== 0) {
+          let formatPlans = [];
+          plans.map((plan) => {
+            formatPlans.push(plan.id);
+          });
+          platform.plans = formatPlans;
+        }
+
         this.setState({
           imageUrl: platform.logo,
           selectLabels: platform.labels,
+          selectPlans:platform.plans,
           platform: platform,
         });
       })
@@ -85,6 +112,10 @@ export default class PlatformDetailTab extends Component {
       if ('labels' in platform) {
         io.socket.patch('/platform/' + id + '/setLabel', {'labels': platform.labels});
         delete platform.labels;
+      }
+      if('plans' in platform){
+        io.socket.patch('/platform/' + id + '/setPlan', {'plans': platform.plans});
+        delete platform.plans;
       }
       if (!this.isEmptyObject(platform)) {
         io.socket.patch('/platform/' + id, platform);
@@ -124,6 +155,10 @@ export default class PlatformDetailTab extends Component {
         alertStr: "贷款平台声明不能为空！"
       },
       {
+        id:'rate',
+        alertStr:"请输入正确的最低利率，格式为百分数！"
+      },
+      {
         id: 'applyQuantity',
         alertStr: "请输入正确的贷款平台申请人数！"
       },
@@ -161,7 +196,14 @@ export default class PlatformDetailTab extends Component {
         }
         newPlatform[temp.id] = text;
       }
-      for (let i = flagIndex; i < len; i++) {
+      temp = example[flagIndex];
+      text = document.getElementById(temp.id).value;
+      if(! (/^(0\.)\d+%$/.test(text))){
+        alert(temp.alertStr);
+        return;
+      }
+      newPlatform[temp.id] = text;
+      for (let i = flagIndex+1; i < len; i++) {
         temp = example[i];
         text = document.getElementById(temp.id).value;
         if (!(/^\d+$/.test(text))) {
@@ -186,6 +228,8 @@ export default class PlatformDetailTab extends Component {
       }
       newPlatform['url'] = url;
 
+      newPlatform['plans'] = this.state.selectPlans;
+
       newPlatform['labels'] = this.state.selectLabels;
     } else {
       //更新平台数据
@@ -195,7 +239,17 @@ export default class PlatformDetailTab extends Component {
           newPlatform[temp.id] = text;
         }
       }
-      for (let i = flagIndex; i < len; i++) {
+      temp = example[flagIndex];
+      text = document.getElementById(temp.id).value;
+      if(text != ""){
+        if(! (/^(0\.)\d+%$/.test(text))){
+          alert(temp.alertStr);
+          return;
+        }
+        newPlatform[temp.id] = text;
+      }
+
+      for (let i = flagIndex+1; i < len; i++) {
         temp = example[i];
         text = document.getElementById(temp.id).value;
         if (text != "") {
@@ -212,6 +266,9 @@ export default class PlatformDetailTab extends Component {
       //如果经过选择，最终的结果没变就不更新
       if (this.state.selectLabels.sort().toString() != this.state.platform.labels.sort().toString()) {
         newPlatform['labels'] = this.state.selectLabels;
+      }
+      if (this.state.selectPlans.sort().toString() != this.state.platform.plans.sort().toString()) {
+        newPlatform['plans'] = this.state.selectPlans;
       }
       let url = document.getElementById('url').value;
       if (url != "") {
@@ -262,6 +319,9 @@ export default class PlatformDetailTab extends Component {
           <FormItem label="综合评分">
             <MyInput placeholder={platform.grade} id="grade"/>
           </FormItem>
+          <FormItem label="最低利率(百分数)">
+            <MyInput placeholder={platform.rate} id="rate"/>
+          </FormItem>
           <div style={{display: 'flex'}}>
             <FormItem label="最快放款时间">
               <MyInput placeholder={platform.fastestTime} id="fastestTime"/>
@@ -290,6 +350,12 @@ export default class PlatformDetailTab extends Component {
               options={this.state.labels}
               value={this.state.selectLabels}
               onChange={(selectedValues) => this.setState({selectLabels: selectedValues,})}/>
+          </FormItem>
+          <FormItem label="分期">
+            <Checkbox.Group
+              options={this.state.plans}
+              value={this.state.selectPlans}
+              onChange={(selectedValues) => this.setState({selectPlans: selectedValues,})}/>
           </FormItem>
           <FormItem>
             <Button type="primary" size="large" onClick={() => {

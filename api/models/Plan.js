@@ -12,11 +12,11 @@ module.exports = {
       type:'string'
     },
     rate:{
-      type:'number',
-      columnType:'float'
+      type:'string',
     },
-    platform:{
-      model:'platform'
+    platforms:{
+      collection:'platform',
+      via:'plans'
     },
     orders:{
       collection:'order',

@@ -1,5 +1,6 @@
 import {Upload, Icon, message} from 'antd';
 import React, {Component} from 'react';
+import MyIcon from "../../Tools/MyIcon";
 
 
 function beforeUpload(file) {
@@ -35,7 +36,7 @@ export default class MyUpload extends Component {
     if (url !== undefined) {
       setTimeout(() => {
         this.setState({
-          image: (<img src={url} alt="" style={Object.assign({width: 50, height: 50,}, props.style)}/>),
+          image: (<MyIcon type={url} src={url} alt="" style={Object.assign({width: 50, height: 50,}, props.style)}/>),
         });
       }, 2000);
     }

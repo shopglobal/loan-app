@@ -54,7 +54,7 @@ export default class GuideActivity extends Component {
 
 		return (
 			<div>
-				<MyNavBar>攻略指导</MyNavBar>
+				<MyNavBar onLeftClick={()=>browserHistory.goBack()}>攻略指导</MyNavBar>
 				<Carousel
           style={styleAd}
 					autoplay={true}

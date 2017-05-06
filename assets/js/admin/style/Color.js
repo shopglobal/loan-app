@@ -1,5 +1,7 @@
 module.exports = {
 
+  Basic:'#EA544A',
+
 	Red: '#FF0000',
 	AliceBlue: '#F0F8FF',
 	Dodgerblue: '#1E90FF',
