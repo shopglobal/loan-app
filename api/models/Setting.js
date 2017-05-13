@@ -28,6 +28,10 @@ module.exports = {
     },
     about:{
       type:'string'
+    },
+    verified:{
+      type:'boolean',
+      defaultsTo:true
     }
 
   },

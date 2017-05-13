@@ -1,12 +1,9 @@
-import React, {Component}from 'react';
-import {Flex} from 'antd-mobile';
-import MyIcon from '../../Tools/MyIcon';
-import Size from '../style/Size';
-import MyLink from '../../Tools/MyLink';
-import styleListItem from '../style/styleListItem';
+import React, {Component} from "react";
+import MyIcon from "../../Tools/MyIcon";
+import Size from "../style/Size";
 
 
-import Color from '../style/Color';
+import Color from "../style/Color";
 
 export default class TextListItem extends Component {
 

@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import {Picker} from "antd-mobile";
 
-import Color from '../style/Color';
-import Size from '../style/Size';
+import Color from "../style/Color";
+import Size from "../style/Size";
 import MyIcon from "../../Tools/MyIcon";
-import TextListItem from "./TextListItem";
+
+require('../style/styleMyPicker.css');
 
 export default class MyPicker extends Component {
 

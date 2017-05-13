@@ -1,10 +1,7 @@
-import React, {Component} from 'react';
-import {Form, Icon, Input, Button, Checkbox} from 'antd';
+import React, {Component} from "react";
+import {Button, Form, message, Switch} from "antd";
 import MyInput from "./component/MyInput";
-import MyUpload from "./component/MyUpload";
 const FormItem = Form.Item;
-import {Radio , message} from 'antd';
-import {browserHistory} from 'react-router';
 var io = require('../../dependencies/sockets');
 
 
@@ -19,16 +16,20 @@ export default class SettingTab extends Component {
         "msgTemplate": "",
         "msgAccount": "",
         "msgPassword": "",
-        "msgUrl": ""
-      }
+        "msgUrl": "",
+        "verified":true,
+      },
+      verified:true
     }
   }
 
   componentWillMount() {
 
     io.socket.get('/setting', {}, (settings, res) => {
+      let setting = settings[0];
       this.setState({
-        setting: settings[0]
+        setting: setting,
+        verified:setting.verified
       });
     })
 
@@ -62,6 +63,10 @@ export default class SettingTab extends Component {
       }
     }
 
+    if (this.state.verified !== this.state.setting.verified){
+      newSetting.verified = this.state.verified;
+    }
+
     return newSetting;
   }
 
@@ -73,6 +78,9 @@ export default class SettingTab extends Component {
       <div>
         <div>平台详情</div>
         <Form layout='horizontal'>
+          <FormItem label="审核是否通过">
+            <Switch checked={this.state.verified} onChange={(checked)=>this.setState({verified:checked})} />
+          </FormItem>
           <FormItem label="客户服务电话">
             <MyInput placeholder={setting.serviceTele} id="serviceTele"/>
           </FormItem>

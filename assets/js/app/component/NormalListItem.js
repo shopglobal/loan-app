@@ -1,12 +1,9 @@
-import React, {Component}from 'react';
-import {Flex} from 'antd-mobile';
-import MyIcon from '../../Tools/MyIcon';
-import MyLink from '../../Tools/MyLink';
-import styleListItem from '../style/styleListItem';
-
-
-import Color from '../style/Color';
-import Size from '../style/Size';
+import React, {Component} from "react";
+import {Flex} from "antd-mobile";
+import MyIcon from "../../Tools/MyIcon";
+import MyLink from "../../Tools/MyLink";
+import styleListItem from "../style/styleListItem";
+import Size from "../style/Size";
 
 export default class NormalListItem extends Component {
 

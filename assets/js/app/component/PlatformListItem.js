@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import {Flex} from "antd-mobile";
-import MyIcon from '../../Tools/MyIcon';
+import MyIcon from "../../Tools/MyIcon";
 
-import Size from '../style/Size';
-import Color from '../style/Color';
-import styleListItem from '../style/styleListItem';
+import Size from "../style/Size";
+import Color from "../style/Color";
+import styleListItem from "../style/styleListItem";
 import MyLink from "../../Tools/MyLink";
 
 export default class PlatformListItem extends Component {

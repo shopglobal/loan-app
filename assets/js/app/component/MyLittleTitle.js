@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
-import {Flex} from 'antd-mobile';
-import Color from '../style/Color';
-import Size from '../style/Size';
+import React, {Component} from "react";
+import Color from "../style/Color";
+import Size from "../style/Size";
 
 export default class MyLittleTitle extends Component {
 

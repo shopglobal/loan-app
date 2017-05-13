@@ -1,8 +1,6 @@
-import React, {Component} from 'react';
-import MyLink from '../../Tools/MyLink';
-
-import Color from '../style/Color';
-import Size from '../style/Size';
+import React, {Component} from "react";
+import MyLink from "../../Tools/MyLink";
+import Size from "../style/Size";
 
 export default class IconAndText extends Component {
 

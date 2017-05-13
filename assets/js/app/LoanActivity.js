@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import MyNavBar from "./component/MyNavBar";
 import MyPlaceHolder from "./component/MyPlaceHolder";
-import {Flex, Popup} from "antd-mobile";
+import {Popup} from "antd-mobile";
 import Size from "./style/Size";
 import Color from "./style/Color";
 import PlatformActivity from "./PlatformActivity";

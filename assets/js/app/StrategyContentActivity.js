@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import MyNavBar from "./component/MyNavBar";
-import Size from './style/Size';
+import Size from "./style/Size";
 import MyPlaceHolder from "./component/MyPlaceHolder";
-import {browserHistory} from 'react-router';
+import {browserHistory} from "react-router";
 
 var io = require('../../dependencies/sockets');
 

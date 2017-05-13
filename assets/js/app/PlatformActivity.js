@@ -4,7 +4,6 @@ import MyLittleTitleAndContent from "./component/MyLittleTitleAndContent";
 import Size from "./style/Size";
 import Color from "./style/Color";
 import MyPicker from "./component/MyPicker";
-import {Flex} from 'antd-mobile';
 import PlatformBlock from "./component/PlatformBlock";
 import MyIcon from "../Tools/MyIcon";
 import styleLittleText from "./style/styleLittleText";
@@ -85,13 +84,12 @@ export default class PlatformActivity extends Component {
 						alignItems: 'center'
 					}}>
 					<div style={{
+					  flex:1,
 						fontSize: Size.NormalFontSize
 					}}>贷款金额
 					</div>
 					<div
 						style={{
-							position:'absolute',
-							right:Size.PagePaddingLeftAndRight,
 							fontSize: Size.NormalFontSize
 						}}>{extra}</div>
 				</div>

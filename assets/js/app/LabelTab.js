@@ -1,12 +1,11 @@
-import React, {Component} from 'react';
-import {NavBar, List} from "antd-mobile";
-import {browserHistory} from 'react-router';
+import React, {Component} from "react";
+import {List} from "antd-mobile";
+import {browserHistory} from "react-router";
 import NormalListItem from "./component/NormalListItem";
 import MyPlaceHolder from "./component/MyPlaceHolder";
-import MyNavBar from './component/MyNavBar';
+import MyNavBar from "./component/MyNavBar";
+import Size from "./style/Size";
 var io = require('../../dependencies/sockets');
-
-import Size from './style/Size';
 
 export default class LabelTab extends Component {
 

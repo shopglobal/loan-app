@@ -18,14 +18,14 @@ module.exports = {
 	IconSizeBig: 50,
 	IconSizeSmall: 15,
 
-	TabBarHeight:100,
+	TabBarHeight:50,
 
 	ButtonHeight: document.documentElement.clientHeight*1/9,
 	ButtonWidth:document.documentElement.clientWidth * 8 / 9,
 	PickerHeight:document.documentElement.clientHeight*2/5,
 
-	InputItemHeight:50,
-	InputHeight:40,
+	InputItemHeight:40,
+	InputHeight:30,
 
 
 	NormalListItemHeight: 50,

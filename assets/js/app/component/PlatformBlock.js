@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
-import Color from '../style/Color';
-import Size from '../style/Size';
+import Color from "../style/Color";
+import Size from "../style/Size";
 
 export default class PlatformBlock extends Component {
 

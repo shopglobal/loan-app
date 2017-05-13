@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import Color from '../style/Color';
-import Size from '../style/Size';
-import MyLittleTitle from './MyLittleTitle';
+import React, {Component} from "react";
+import Color from "../style/Color";
+import Size from "../style/Size";
+import MyLittleTitle from "./MyLittleTitle";
 
 export default class MyLittleTitleAndContent extends Component {
 

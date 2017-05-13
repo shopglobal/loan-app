@@ -1,11 +1,8 @@
-import React, {Component} from 'react';
-import {Picker} from "antd-mobile";
+import React, {Component} from "react";
 
-import Color from '../style/Color';
-import Size from '../style/Size';
-import MyIcon from "../../Tools/MyIcon";
-import TextListItem from "./TextListItem";
-import MyRandom from '../../Tools/MyRandom';
+import Color from "../style/Color";
+import Size from "../style/Size";
+import MyRandom from "../../Tools/MyRandom";
 
 export default class MyInput extends Component {
 

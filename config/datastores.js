@@ -53,7 +53,6 @@ module.exports.datastores = {
 
     adapter: require('sails-mysql'),
     url: 'mysql://root:howie@localhost:3306/loan',
-    //adapterApiVersion:'0.11.5'
 
   },
 

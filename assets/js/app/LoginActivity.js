@@ -1,12 +1,11 @@
 import React, {Component} from "react";
-import IconAndText from "./component/IconAndText";
 import MyNavBar from "./component/MyNavBar";
 import MyButton from "../Tools/MyButton";
 import {Toast} from "antd-mobile";
 import Color from "./style/Color";
 import MyInput from "./component/MyInput";
-import {browserHistory} from 'react-router';
-import Size from './style/Size';
+import {browserHistory} from "react-router";
+import Size from "./style/Size";
 import MyPlaceHolder from "./component/MyPlaceHolder";
 import MyIcon from "../Tools/MyIcon";
 var io = require('../../dependencies/sockets');
@@ -100,6 +99,7 @@ export default class LoginActivity extends Component {
 				</div>
 
 				<MyInput
+          styleInput={{width:140}}
 					style={{
 						padding: Size.Padding * 2,
 						paddingLeft: Size.PagePaddingLeftAndRight,
@@ -120,7 +120,7 @@ export default class LoginActivity extends Component {
 						paddingRight: Size.PagePaddingLeftAndRight
 					}}>
 					<MyInput
-						styleInput={{width:150}}
+						styleInput={{width:60}}
 						onChange={(text) => {
 							let correctLen = text.length === 4 ? true : false;
 							this.setState({

@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import IconAndText from "./component/IconAndText";
-import {List, ActionSheet, Toast, Modal, Popup, Button} from 'antd-mobile';
-import Size from './style/Size';
-import NormalListItem from './component/NormalListItem';
-import {browserHistory} from 'react-router';
-import MyIcon from "../Tools/MyIcon";
-import MyButton from '../Tools/MyButton';
+import {List, Popup, Toast} from "antd-mobile";
+import Size from "./style/Size";
+import NormalListItem from "./component/NormalListItem";
+import {browserHistory} from "react-router";
+import MyButton from "../Tools/MyButton";
 import MyPlaceHolder from "./component/MyPlaceHolder";
 var io = require('../../dependencies/sockets');
 

@@ -3,9 +3,9 @@ import MyPicker from "./component/MyPicker";
 import {ListView} from "antd-mobile";
 import PlatformListItem from "./component/PlatformListItem";
 import MyNavBar from "./component/MyNavBar";
-import {browserHistory} from 'react-router';
+import {browserHistory} from "react-router";
+import Size from "./style/Size";
 var io = require('../../dependencies/sockets');
-import Size from './style/Size';
 
 export default class PlatformsActivity extends Component {
 

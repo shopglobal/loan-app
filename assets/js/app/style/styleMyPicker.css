@@ -1,0 +1,17 @@
+.am-picker-popup-header {
+  height: 50px;
+}
+
+.am-picker-popup-item {
+  font-size: 20px;
+  padding: 10px 30px;
+}
+
+
+.am-picker-col-item-selected {
+  font-size: 25px;
+}
+
+.am-picker-col-item {
+  font-size: 20px;
+}

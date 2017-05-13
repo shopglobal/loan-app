@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import MyNavBar from "./component/MyNavBar";
-import Size from './style/Size';
-import Color from './style/Color';
-import {List, Radio} from 'antd-mobile';
+import Size from "./style/Size";
+import Color from "./style/Color";
+import {List, Radio} from "antd-mobile";
 import MyButton from "../Tools/MyButton";
-import {browserHistory} from 'react-router';
+import {browserHistory} from "react-router";
 
 var io = require('../../dependencies/sockets');
 

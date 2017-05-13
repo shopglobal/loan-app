@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import Size from '../style/Size';
-import Color from '../style/Color';
+import React, {Component} from "react";
+import Size from "../style/Size";
+import Color from "../style/Color";
 
-import {Flex} from 'antd-mobile';
+import {Flex} from "antd-mobile";
 import MyLink from "../../Tools/MyLink";
 
 export default class HomeLoanMoneySquare extends Component {

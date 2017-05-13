@@ -1,17 +1,15 @@
-import React, {Component} from 'react';
-import {browserHistory} from 'react-router';
-import {Carousel, Flex} from 'antd-mobile';
+import React, {Component} from "react";
+import {browserHistory} from "react-router";
+import {Carousel, Flex, List} from "antd-mobile";
 import MyPlaceHolder from "./component/MyPlaceHolder";
 import HomeLoanMoneySquare from "./component/HomeLoanMoneySquare";
 import LittleTitle from "./component/MyLittleTitle";
-import MyLink from "../Tools/MyLink";
-var io = require('../../dependencies/sockets');
-import Size from './style/Size';
-import Color from './style/Color';
+import Size from "./style/Size";
+import Color from "./style/Color";
 
-import IconAndText from './component/IconAndText'
-import {List} from 'antd-mobile';
-import PlatformListItem from './component/PlatformListItem';
+import IconAndText from "./component/IconAndText";
+import PlatformListItem from "./component/PlatformListItem";
+var io = require('../../dependencies/sockets');
 
 export default class HomeTab extends Component {
 

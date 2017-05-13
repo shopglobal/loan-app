@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import {ListView, Button} from "antd-mobile";
-import MyNavBar from './component/MyNavBar';
-import Size from './style/Size';
+import {ListView} from "antd-mobile";
+import MyNavBar from "./component/MyNavBar";
+import Size from "./style/Size";
 
 import MyOrderListItem from "./component/MyOrderListItem";
 import MyButton from "../Tools/MyButton";

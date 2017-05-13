@@ -1,0 +1,12 @@
+.am-tab-bar-bar {
+  height: 60px;
+}
+
+.am-tab-bar-bar .am-tab-bar-tab-title {
+  font-size: 15px;
+}
+
+.am-tab-bar-bar .am-tab-bar-tab-image {
+  width: 30px;
+  height: 30px;
+}

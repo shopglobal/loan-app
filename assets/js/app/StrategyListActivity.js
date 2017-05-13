@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import MyNavBar from "./component/MyNavBar";
 import StrategyListItem from "./component/StrategyListItem";
-import Size from './style/Size';
-import {ListView} from 'antd-mobile';
-import {browserHistory} from 'react-router';
+import Size from "./style/Size";
+import {ListView} from "antd-mobile";
+import {browserHistory} from "react-router";
 var io = require('../../dependencies/sockets');
 
 export default class StrategyListActivity extends Component {
