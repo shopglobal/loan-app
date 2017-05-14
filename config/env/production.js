@@ -224,8 +224,7 @@ module.exports = {
      *                                                                          *
      ***************************************************************************/
     onlyAllowOrigins: [
-      'http://10.206.8.99',
-      'http://localhost'
+      'http://ss.gizeta.me',
       //   'https://example.com',
     ],
 
