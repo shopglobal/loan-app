@@ -28,7 +28,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 
-  hookTimeout: 80000,
+  hookTimeout: 90000,
 
   /**************************************************************************
    *                                                                         *

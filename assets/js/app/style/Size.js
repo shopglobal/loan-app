@@ -18,28 +18,34 @@ module.exports = {
 	IconSizeBig: 50,
 	IconSizeSmall: 15,
 
-	TabBarHeight:50,
+	/*有关TabBar
+	* 如果修改TabBar样式一定修改styleTabBar*/
+	TabBarHeight:60,
 
 	ButtonHeight: document.documentElement.clientHeight*1/9,
 	ButtonWidth:document.documentElement.clientWidth * 8 / 9,
-	PickerHeight:document.documentElement.clientHeight*2/5,
+	PickerHeight:40,
 
+	/*有关ListItem*/
 	InputItemHeight:40,
 	InputHeight:30,
-
 
 	NormalListItemHeight: 50,
 	SmallListItemHeight: 10,
 	MultiListItemHeight: 40,
 
+
+	/*Padding*/
 	//如若修改Padding，需要修改Squire相关数据
 	PagePaddingLeftAndRight:20,
 	Padding:5,
 
+	/*有关首页热门贷款金额方块*/
 	SquareHeight :50,
 	SquareWidth:(document.documentElement.clientWidth-40-15)/4,
 
 
+	/*有关字体*/
 	TitleFontSize: 20,
 	BigFontSize:20,
 	NormalFontSize: 15,

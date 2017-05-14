@@ -1,3 +1,5 @@
+
+/*修改TabBar高度，一定去Size中修改*/
 .am-tab-bar-bar {
   height: 60px;
 }

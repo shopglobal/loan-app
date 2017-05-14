@@ -22,10 +22,12 @@ export default class MyPicker extends Component {
 			<div
 				onClick={props.onClick}
 				style={{
-					height: Size.NormalListItemHeight,
+					height: Size.PickerHeight,
 					backgroundColor: Color.White,
 					display: 'flex',
-					padding: Size.Padding * 2,
+					padding: Size.Padding,
+					paddingLeft:Size.PagePaddingLeftAndRight,
+					paddingRight:Size.PagePaddingLeftAndRight,
 					justifyContent: 'center',
 					alignItems: 'center'
 				}}>
