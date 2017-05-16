@@ -31,6 +31,7 @@ export default class StrategyContentActivity extends Component {
       <div>
         <MyNavBar onLeftClick={()=>browserHistory.goBack()}>{this.state.strategy.title}</MyNavBar>
         <iframe
+          frameBorder="0"
           width={Size.ScreenWidth}
           src={this.state.strategy.content}
           height={Size.NormalContentHeight}/>

@@ -32,7 +32,7 @@ export default class AdActivity extends Component {
 			<div>
 				<MyNavBar onLeftClick={() => browserHistory.goBack()}>{this.state.ad.title}</MyNavBar>
 				<iframe src={this.state.ad.url}
-				        frameborder="0"
+				        frameBorder="0"
 				        width={Size.ScreenWidth}
 				        height={Size.ScreenHeight - Size.NavHeight - Size.PlaceHolderDefaultHeight}/>
 				<MyPlaceHolder/>

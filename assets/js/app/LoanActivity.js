@@ -121,7 +121,7 @@ export default class LoanActivity extends Component {
             data={this.state.platform}/>
         );
       } else {
-        return (<iframe src={this.state.platform.url} frameborder="0"
+        return (<iframe src={this.state.platform.url} frameBorder="0"
                         width={Size.ScreenWidth}
                         height={Size.ScreenHeight - Size.NavHeight - Size.PlaceHolderDefaultHeight * 4}/>);
       }

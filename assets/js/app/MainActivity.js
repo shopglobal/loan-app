@@ -10,8 +10,6 @@ import Color from './style/Color';
 import Size from "./style/Size";
 var io = require('../../dependencies/sockets');
 require('./style/styleTabBar.css');
-require('./style/styleRong360.css');
-
 
 export default class MainActivity extends Component {
 
@@ -31,6 +29,7 @@ export default class MainActivity extends Component {
   }
 
   render() {
+
     return (
       <TabBar
         className
@@ -52,7 +51,8 @@ export default class MainActivity extends Component {
           {this.state.verified ?
             <HomeTab/> :
             <iframe
-              frameborder="0"
+              id={homeTabKey}
+              frameBorder="0"
               width={Size.ScreenWidth}
               height={Size.ScreenHeight - Size.TabBarHeight}
               src="https://m.rong360.com/article/"/>
@@ -74,7 +74,8 @@ export default class MainActivity extends Component {
           {this.state.verified ?
             <LabelTab flag="main"/> :
             <iframe
-              frameborder="0"
+              id={labelTabKey}
+              frameBorder="0"
               width={Size.ScreenWidth}
               height={Size.ScreenHeight - Size.TabBarHeight}
               src="https://m.rong360.com/licai/"/>
@@ -96,6 +97,7 @@ export default class MainActivity extends Component {
           {this.state.verified ?
             <OrderTab/> :
             <iframe
+              id={orderTabKey}
               frameborder="0"
               width={Size.ScreenWidth}
               height={Size.ScreenHeight - Size.TabBarHeight}

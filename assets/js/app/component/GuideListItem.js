@@ -20,7 +20,7 @@ export default class GuideListItem extends Component {
 			<div onClick={()=>this.props.onClick(guide)} style={styleListItem}>
 				<MyLink to={this.props.link}>
 					<Flex>
-						<MyIcon size="big" src={guide.icon}/>
+						<MyIcon size="big" type={guide.icon} src={guide.icon}/>
 						<Flex.Item>
 							<div style={styleTitle}>{guide.title}</div>
 							<div

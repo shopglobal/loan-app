@@ -9,10 +9,6 @@ import MyLink from "../../Tools/MyLink";
 
 export default class StrategyListItem extends Component {
 
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		let strategy = this.props.data;
 		return (
