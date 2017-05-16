@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import Size from "../style/Size";
 import MyIcon from "../../Tools/MyIcon";
-import {Flex} from "antd-mobile";
 import Color from "../style/Color";
 
 export default class MyNavBar extends Component {
@@ -29,20 +28,26 @@ export default class MyNavBar extends Component {
     }
 
     return (
-      <div><Flex style={{
-        padding: 10,
-        backgroundColor: Color.NavBarBack,
-        height: Size.NavHeight,
-      }}>
-        <MyIcon type={leftIconType} onClick={leftOnClick}/>
-        <Flex.Item>
-          <div style={{
-            color: Color.White, fontSize: Size.TitleFontSize, textAlign: 'center'
-          }}>{this.props.children || this.props.title}</div>
-        </Flex.Item>
-        <MyIcon type={rightIconType} onClick={rightOnClick}/></Flex>
-      </div>
 
+      <div
+        style={{
+          backgroundColor: Color.NavBarBack,
+          height: Size.NavHeight,
+          display: 'flex',
+          paddingLeft: Size.PagePaddingLeftAndRight,
+          paddingRight: Size.PagePaddingLeftAndRight,
+          alignItems: 'center',
+        }}>
+        <MyIcon type={leftIconType} onClick={leftOnClick}/>
+
+        <div style={{
+          flex: 1,
+          color: Color.White,
+          fontSize: Size.TitleFontSize,
+          textAlign: 'center'
+        }}>{this.props.children || this.props.title}</div>
+        <MyIcon type={rightIconType} onClick={rightOnClick}/>
+      </div>
 
     );
   }

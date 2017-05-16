@@ -1,0 +1,39 @@
+/*第一页*/
+.uwh-arrowHome {
+  visibility: hidden;
+}
+
+.ui-widget-header .uwh-bar .uwh-title {
+  margin-left: 0px;
+}
+
+.footer {
+  display: none;
+}
+
+.flink {
+  display: none;
+}
+
+/*第二页*/
+div.uwh-bar {
+  display: none;
+}
+
+.ui-widget-footer {
+  display: none;
+}
+
+.Present {
+  display: none;
+}
+
+
+/*第三页*/
+.ui-widget-header ui-header-theme-loan {
+  display: none;
+}
+
+footer {
+  display: none;
+}

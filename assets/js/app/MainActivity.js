@@ -10,6 +10,7 @@ import Color from './style/Color';
 import Size from "./style/Size";
 var io = require('../../dependencies/sockets');
 require('./style/styleTabBar.css');
+require('./style/styleRong360.css');
 
 
 export default class MainActivity extends Component {

@@ -69,7 +69,7 @@ export default class PlatformActivity extends Component {
     return (
       <div style={{
         overflow: 'auto',
-        height: Size.ScreenHeight - Size.NavHeight - Size.PlaceHolderDefaultHeight * 2 - Size.ButtonHeight
+        height: Size.NormalContentHeight - Size.PagePaddingLeftAndRight * 2 - Size.ButtonHeight
       }}>
         {header()}
         <MyPlaceHolder/>

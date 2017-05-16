@@ -49,9 +49,7 @@ export default class OrderTab extends Component {
         return (<div style={{
           textDecoration: 'none',
           borderWidth: 0,
-          display: this.state.hasLogin === 0 ? undefined : 'none',
           padding: Size.ScreenWidth / 4,
-          height: Size.NormalContentHeight-Size.TabBarHeight,
         }}>
           <MyButton link="/login" style={{height: 50}}>登录</MyButton>
         </div>);
